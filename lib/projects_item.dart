@@ -7,19 +7,17 @@ List<ProjectsItem> projectsList() {
       "Portfolio Website",
       DateTime.now(),
       image: "assets/general/background.jpg",
-      sort: ProjectsSort.university,
+      sort: ProjectsSort.personal,
     ),
     ProjectsItem(
       "VR Movement Viewer",
-      DateTime(2019, 10, 10),
-      dateStarted: DateTime(2019, 6, 10),
+      DateTime(2020, 2, 29),
       image: "assets/projects/vrOmniTread.png",
       sort: ProjectsSort.professional,
     ),
     ProjectsItem(
       "VR Treadmill",
       DateTime(2019, 4, 13),
-      dateStarted: DateTime(2020, 2, 13),
       image: "assets/projects/vrOmniTread.png",
       sort: ProjectsSort.professional,
     ),
@@ -68,7 +66,7 @@ List<ProjectsItem> projectsList() {
       "CityFight (Digital Re-imagining)",
       DateTime(2019, 11, 13),
       image: "assets/projects/cityFightLogo.png",
-      sort: ProjectsSort.university,
+      sort: ProjectsSort.professional,
     ),
     ProjectsItem(
       "Snail & Seek (48hr Sunjam 2019)",
@@ -147,8 +145,8 @@ Icon projectsItemIcon(ProjectsSort sortType) {
 }
 
 enum ProjectsSort {
-  personal,
   professional,
+  personal,
   university,
   gamejam,
 }
