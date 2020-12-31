@@ -4,6 +4,12 @@ import 'package:intl/intl.dart';
 List<ProjectsItem> projectsList() {
   return [
     ProjectsItem(
+      "Portfolio Website",
+      DateTime.now(),
+      image: "assets/general/background.jpg",
+      sort: ProjectsSort.university,
+    ),
+    ProjectsItem(
       "VR Movement Viewer",
       DateTime(2019, 10, 10),
       dateStarted: DateTime(2019, 6, 10),
