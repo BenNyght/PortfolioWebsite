@@ -1,4 +1,5 @@
 import 'package:benjamin_portfolio/fade_in.dart';
+import 'package:benjamin_portfolio/footer.dart';
 import 'package:benjamin_portfolio/projects_list.dart';
 import 'package:flutter/material.dart';
 
@@ -24,10 +25,6 @@ class _HomeViewState extends State<HomeView> {
           slivers: <Widget>[
             SliverAppBar(
               backgroundColor: Color(0xFF232323),
-              // leading: Image.asset(
-              //   'assets/general/logowhite.png',
-              //   fit: BoxFit.contain,
-              // ),
               expandedHeight: MediaQuery.of(context).size.height,
               snap: false,
               pinned: false,
@@ -63,6 +60,7 @@ class _HomeViewState extends State<HomeView> {
                                   color: Colors.white,
                                 ),
                               ),
+                              /*
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -121,7 +119,7 @@ class _HomeViewState extends State<HomeView> {
                                     ),
                                   ),
                                 ],
-                              )
+                              )*/
                             ],
                           ),
                         ),
@@ -134,17 +132,9 @@ class _HomeViewState extends State<HomeView> {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  FractionallySizedBox(
-                    widthFactor: 0.8,
-                    child: Column(
-                      children: [
-                        ProjectsList(),
-                        Container(
-                          height: 100,
-                        )
-                      ],
-                    ),
-                  ),
+                  ProjectsList(),
+                  Container(height: 50),
+                  Footer(),
                 ],
               ),
             ),

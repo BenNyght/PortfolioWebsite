@@ -30,7 +30,12 @@ class _ProjectsListState extends State<ProjectsList> {
 
     for (var i = 0; i < ProjectsSort.values.length; i++) {
       if (!sortActive.containsKey(ProjectsSort.values[i])) {
-        sortActive[ProjectsSort.values[i]] = true;
+        if (ProjectsSort.values[i] == ProjectsSort.gamejam ||
+            ProjectsSort.values[i] == ProjectsSort.university) {
+          sortActive[ProjectsSort.values[i]] = false;
+        } else {
+          sortActive[ProjectsSort.values[i]] = true;
+        }
       }
     }
 
@@ -43,58 +48,61 @@ class _ProjectsListState extends State<ProjectsList> {
 
     sortedProjects.sort((b, a) => a.dateCompleted.compareTo(b.dateCompleted));
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Container(
-          margin: EdgeInsets.all(15),
-          child: Center(
-            child: Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              children: List<Widget>.generate(
-                ProjectsSort.values.length,
-                (int index) {
-                  String sortType =
-                      ProjectsSort.values[index].toString().split('.').last;
+    return FractionallySizedBox(
+      widthFactor: 0.8,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.all(15),
+            child: Center(
+              child: Wrap(
+                spacing: 10,
+                runSpacing: 10,
+                children: List<Widget>.generate(
+                  ProjectsSort.values.length,
+                  (int index) {
+                    String sortType =
+                        ProjectsSort.values[index].toString().split('.').last;
 
-                  return ChoiceChip(
-                    avatar: sortActive[ProjectsSort.values[index]]
-                        ? Icon(Icons.done)
-                        : null,
-                    label: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                          "${sortType[0].toUpperCase()}${sortType.substring(1)}",
-                          style: TextStyle(fontSize: 20)),
-                    ),
-                    selected: sortActive[ProjectsSort.values[index]],
-                    backgroundColor: Colors.grey[200],
-                    selectedColor: Colors.grey[300],
-                    labelStyle: TextStyle(color: Color(0xFF232323)),
-                    onSelected: (bool selected) {
-                      setState(() {
-                        sortActive[ProjectsSort.values[index]] =
-                            !sortActive[ProjectsSort.values[index]];
-                      });
-                    },
-                  );
-                },
-              ).toList(),
+                    return ChoiceChip(
+                      avatar: sortActive[ProjectsSort.values[index]]
+                          ? Icon(Icons.done)
+                          : null,
+                      label: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                            "${sortType[0].toUpperCase()}${sortType.substring(1)}",
+                            style: TextStyle(fontSize: 20)),
+                      ),
+                      selected: sortActive[ProjectsSort.values[index]],
+                      backgroundColor: Colors.grey[200],
+                      selectedColor: Colors.grey[300],
+                      labelStyle: TextStyle(color: Color(0xFF232323)),
+                      onSelected: (bool selected) {
+                        setState(() {
+                          sortActive[ProjectsSort.values[index]] =
+                              !sortActive[ProjectsSort.values[index]];
+                        });
+                      },
+                    );
+                  },
+                ).toList(),
+              ),
             ),
           ),
-        ),
-        GridView.builder(
-          shrinkWrap: true,
-          padding: EdgeInsets.all(10),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              crossAxisCount: _crossAxisCount),
-          itemBuilder: (_, index) => FadeIn(0, sortedProjects[index]),
-          itemCount: sortedProjects.length,
-        ),
-      ],
+          GridView.builder(
+            shrinkWrap: true,
+            padding: EdgeInsets.all(10),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                crossAxisCount: _crossAxisCount),
+            itemBuilder: (_, index) => FadeIn(0, sortedProjects[index]),
+            itemCount: sortedProjects.length,
+          ),
+        ],
+      ),
     );
   }
 }
