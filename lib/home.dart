@@ -1,7 +1,9 @@
 import 'package:benjamin_portfolio/fade_in.dart';
 import 'package:benjamin_portfolio/footer.dart';
+import 'package:benjamin_portfolio/projects.dart';
 import 'package:benjamin_portfolio/projects_list.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({Key key}) : super(key: key);
@@ -13,8 +15,27 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   int timelineIndex = 0;
 
+  void _launchURL(String _url) async => await canLaunch(_url)
+      ? await launch(_url)
+      : throw 'Could not launch $_url';
+
   @override
   Widget build(BuildContext context) {
+    double _screenWidth = MediaQuery.of(context).size.width;
+    print(_screenWidth);
+    double widthFactor = 0.25;
+    if (_screenWidth > 2500) {
+      widthFactor = 0.25;
+    } else if (_screenWidth > 1800) {
+      widthFactor = 0.25;
+    } else if (_screenWidth > 1000) {
+      widthFactor = 0.35;
+    } else if (_screenWidth > 700) {
+      widthFactor = 0.7;
+    } else {
+      widthFactor = 0.85;
+    }
+
     return Scaffold(
       body: SafeArea(
         bottom: true,
@@ -35,16 +56,13 @@ class _HomeViewState extends State<HomeView> {
                 background: Stack(
                   fit: StackFit.expand,
                   children: [
-                    FadeIn(
-                      4,
-                      Image.asset(
-                        "assets/general/background.jpg",
-                        fit: BoxFit.cover,
-                      ),
+                    Image.asset(
+                      "assets/general/background.jpg",
+                      fit: BoxFit.cover,
                     ),
                     Center(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.25,
+                      child: FractionallySizedBox(
+                        widthFactor: widthFactor,
                         child: FittedBox(
                           fit: BoxFit.fitWidth,
                           child: Column(
@@ -52,7 +70,7 @@ class _HomeViewState extends State<HomeView> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
-                                "GAME DESIGNER\n& PROGRAMMER",
+                                "Benjamin Finlay",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 40,
@@ -60,66 +78,61 @@ class _HomeViewState extends State<HomeView> {
                                   color: Colors.white,
                                 ),
                               ),
-                              /*
+                              Text(
+                                "Game Designer & Programmer",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  FittedBox(
-                                    fit: BoxFit.fitWidth,
-                                    child: Container(
-                                      width: 88,
-                                      height: 36,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFff3366),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Color(0xFF232323),
-                                            offset: Offset(0.0, 0.3), //(x,y)
-                                            blurRadius: 3.0,
-                                          ),
-                                        ],
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(18.0)),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          "Projects",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ),
-                                    ),
+                                  ElevatedButton.icon(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Projects(),
+                                          ));
+                                    },
+                                    icon: Icon(Icons.computer),
+                                    label: Text("Projects"),
                                   ),
                                   Container(
-                                    width: 15,
+                                    width: 7,
                                   ),
-                                  FittedBox(
-                                    fit: BoxFit.fitWidth,
-                                    child: Container(
-                                      width: 88,
-                                      height: 36,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFff3366),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Color(0xFF232323),
-                                            offset: Offset(0.0, 0.3), //(x,y)
-                                            blurRadius: 3.0,
-                                          ),
-                                        ],
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(18.0)),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          "Resume",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ),
-                                    ),
+                                  ElevatedButton.icon(
+                                    onPressed: () {
+                                      _launchURL(
+                                          "https://drive.google.com/file/d/1TuM2GcaGt2Pf0J1ajMGz35C-UJcgyWQJ/view?usp=sharing");
+                                    },
+                                    icon: Icon(Icons.picture_as_pdf),
+                                    label: Text("Resume"),
                                   ),
                                 ],
-                              )*/
+                              ),
+                              SizedBox(
+                                height: 7,
+                              ),
+                              ElevatedButton.icon(
+                                onPressed: () {
+                                  _launchURL(
+                                      "https://www.linkedin.com/in/benjamin-finlay/");
+                                },
+                                icon: Icon(Icons.link),
+                                label: Text("LinkedIn"),
+                                // style: ButtonStyle(
+                                //   backgroundColor:
+                                //       MaterialStateProperty.all<Color>(
+                                //           Color(0xFF232323)),
+                                // ),
+                              ),
                             ],
                           ),
                         ),
@@ -129,15 +142,15 @@ class _HomeViewState extends State<HomeView> {
                 ),
               ),
             ),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  ProjectsList(),
-                  Container(height: 50),
-                  Footer(),
-                ],
-              ),
-            ),
+            // SliverList(
+            //   delegate: SliverChildListDelegate(
+            //     [
+            //       ProjectsList(),
+            //       Container(height: 50),
+            //       Footer(),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),

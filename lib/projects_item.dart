@@ -1,4 +1,6 @@
 import 'package:benjamin_portfolio/projects/altAR/alt_ar.dart';
+import 'package:benjamin_portfolio/projects/gympieSupport/gympie_support.dart';
+import 'package:benjamin_portfolio/projects/projectManager/project_manager.dart';
 import 'package:benjamin_portfolio/work_in_progress.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -13,16 +15,9 @@ List<ProjectsItem> projectsList() {
       navigation: AltAR(),
     ),
     ProjectsItem(
-      "VR Movement Viewer",
+      "VR Movement Tracking",
       DateTime(2020, 2, 29),
       image: "lib/projects/vrMovementViewer/Screenshot_4.png",
-      sort: ProjectsSort.professional,
-      navigation: WorkInProgress(),
-    ),
-    ProjectsItem(
-      "VR Treadmill",
-      DateTime(2019, 4, 13),
-      image: "lib/projects/vrTreadmill/Screenshot_5.png",
       sort: ProjectsSort.professional,
       navigation: WorkInProgress(),
     ),
@@ -67,7 +62,7 @@ List<ProjectsItem> projectsList() {
       navigation: WorkInProgress(),
     ),
     ProjectsItem(
-      "D&D Map Viewer 1.0",
+      "Easy Tabletop Tools",
       DateTime(2020, 3, 1),
       image: "lib/projects/dndMapViewer/d&dViewerLogo.png",
       sort: ProjectsSort.personal,
@@ -124,14 +119,14 @@ List<ProjectsItem> projectsList() {
       DateTime(2020, 12, 23),
       image: "lib/projects/projectManager/cidselDatabase.jpg",
       sort: ProjectsSort.professional,
-      navigation: WorkInProgress(),
+      navigation: ProjectManager(),
     ),
     ProjectsItem(
       "Gympie Support",
       DateTime(2020, 12, 18),
       image: "lib/projects/gympieSupport/gympieSupport.jpg",
       sort: ProjectsSort.professional,
-      navigation: WorkInProgress(),
+      navigation: GympieSupport(),
     ),
   ];
 }
@@ -214,10 +209,10 @@ class ProjectsItem extends StatelessWidget {
                 title,
                 overflow: TextOverflow.fade,
               ),
-              subtitle: Text(
-                dateFormat.format(dateCompleted),
-                overflow: TextOverflow.fade,
-              ),
+              // subtitle: Text(
+              //   dateFormat.format(dateCompleted),
+              //   overflow: TextOverflow.fade,
+              // ),
             ),
           ],
         ),

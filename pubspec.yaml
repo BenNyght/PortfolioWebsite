@@ -1,5 +1,5 @@
 name: benjamin_portfolio
-description: A new Flutter project.
+description: My name is Benjamin Finlay. I'm an enthusiastic programmer eager to contribute to team success through hard work, attention to detail and excellent organizational skills. I have been very passionate about the games and IT industry for as long as I can remember. As a graduate of the University of the Sunshine Coast my passion continues to grow for the industry.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -26,7 +26,7 @@ dependencies:
   transparent_image: ^1.0.0
   simple_animations: ^2.4.2
   intl: ^0.15.8
-
+  url_launcher: ^6.0.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
