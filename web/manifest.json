@@ -19,5 +19,12 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ]
+    ],
+    "screenshots" : [
+        {
+          "src": "icons/background.jpg",
+          "sizes": "4000x2500",
+          "type": "image/jpg"
+        }
+      ]
 }
