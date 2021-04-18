@@ -1,29 +1,27 @@
 import 'package:benjamin_portfolio/fade_in.dart';
 import 'package:benjamin_portfolio/fade_in_two.dart';
-import 'package:benjamin_portfolio/projects_list.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ProjectManager extends StatefulWidget {
-  ProjectManager({Key key}) : super(key: key);
+class CityFight extends StatefulWidget {
+  CityFight({Key key}) : super(key: key);
 
   @override
-  _ProjectManagerState createState() => _ProjectManagerState();
+  _CityFightState createState() => _CityFightState();
 }
 
-class _ProjectManagerState extends State<ProjectManager> {
+class _CityFightState extends State<CityFight> {
   void _launchURL(String _url) async => await canLaunch(_url)
       ? await launch(_url)
       : throw 'Could not launch $_url';
 
   List<String> images = [
-    "lib/projects/projectManager/1.jpg",
-    "lib/projects/projectManager/2.jpg",
-    "lib/projects/projectManager/3.jpg",
-    "lib/projects/projectManager/4.jpg",
-    "lib/projects/projectManager/5.jpg",
-    "lib/projects/projectManager/6.jpg",
+    "lib/projects/cityFight/pic1.png",
+    "lib/projects/cityFight/pic2.png",
+    "lib/projects/cityFight/pic3.png",
+    "lib/projects/cityFight/pic4.png",
+    "lib/projects/cityFight/pic5.png",
   ];
 
   @override
@@ -44,9 +42,9 @@ class _ProjectManagerState extends State<ProjectManager> {
 
     int _crossAxisCount = 4;
     if (_screenWidth > 2500) {
-      _crossAxisCount = 3;
+      _crossAxisCount = 4;
     } else if (_screenWidth > 1800) {
-      _crossAxisCount = 3;
+      _crossAxisCount = 4;
     } else if (_screenWidth > 1000) {
       _crossAxisCount = 3;
     } else if (_screenWidth > 700) {
@@ -64,7 +62,7 @@ class _ProjectManagerState extends State<ProjectManager> {
         child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
-              title: Text("Project Manager"),
+              title: Text("Cityfight"),
               backgroundColor: Color(0xFF232323),
               expandedHeight: 60,
               snap: false,
@@ -88,31 +86,20 @@ class _ProjectManagerState extends State<ProjectManager> {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
-                          Text(
-                            "Project Manager",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF232323),
-                            ),
-                          ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width:
-                                  _screenWidth <= 800 ? double.maxFinite : 800,
-                              height: 250,
-                              child: FadeInTwo(
-                                0.8,
-                                Card(
-                                  elevation: 15,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Image.asset(
-                                      "lib/projects/projectManager/cidselDatabase.jpg",
-                                      fit: BoxFit.cover,
-                                    ),
+                            child: FadeInTwo(
+                              0.8,
+                              Container(
+                                width: _screenWidth <= 800
+                                    ? double.maxFinite
+                                    : 800,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Image.asset(
+                                    "lib/projects/cityFight/cityfighttitle.png",
+                                    fit: BoxFit.contain,
+                                    alignment: Alignment.center,
                                   ),
                                 ),
                               ),
@@ -136,7 +123,7 @@ class _ProjectManagerState extends State<ProjectManager> {
                                       ),
                                     ),
                                     new TextSpan(
-                                      text: 'USC CIDSEL',
+                                      text: "Dr Charles Knight",
                                       style: new TextStyle(
                                         color: Colors.blue,
                                         fontSize: 18,
@@ -144,12 +131,12 @@ class _ProjectManagerState extends State<ProjectManager> {
                                       recognizer: new TapGestureRecognizer()
                                         ..onTap = () {
                                           _launchURL(
-                                              "https://www.usc.edu.au/community/international-development");
+                                              "https://www.linkedin.com/in/charles-knight-36707367/");
                                         },
                                     ),
                                     new TextSpan(
                                       text:
-                                          ' in an effort to redesign their file management and increase productivity. Developed in Flutter, I built and tested the project in approximatly 5 months and is currently being actively used within the Department',
+                                          ' to prototype the idea of using games to teach urban combat strategies. In an effort to reduce the complexity and costs of other training activities.',
                                       style: new TextStyle(
                                         color: Colors.black,
                                         fontSize: 18,
@@ -157,6 +144,56 @@ class _ProjectManagerState extends State<ProjectManager> {
                                     ),
                                   ],
                                 ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "The Game",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF232323),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Flexible(
+                                  child: Container(
+                                    width: double.maxFinite,
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      "The game is based on a single scenario from the board game, you compete directly against another player via a computer ‘hotseat’ This means that after you have your turn, you click end turn and move away so player two may sit down and plan out their round (no peeking!) Until someone either reaches the objective or vanquishes the opposing player.\n",
+                                      softWrap: true,
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(fontSize: 18),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          ElevatedButton.icon(
+                            onPressed: () {
+                              _launchURL("https://bennyght.itch.io/cityfight");
+                            },
+                            icon: Icon(Icons.file_download),
+                            label: Container(
+                              width: 200,
+                              height: 50,
+                              alignment: Alignment.center,
+                              child: Text(
+                                "Download",
+                                style: TextStyle(fontSize: 20),
                               ),
                             ),
                           ),

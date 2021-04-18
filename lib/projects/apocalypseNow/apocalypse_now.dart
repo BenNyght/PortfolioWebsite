@@ -1,29 +1,28 @@
 import 'package:benjamin_portfolio/fade_in.dart';
 import 'package:benjamin_portfolio/fade_in_two.dart';
-import 'package:benjamin_portfolio/projects_list.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ProjectManager extends StatefulWidget {
-  ProjectManager({Key key}) : super(key: key);
+class ApocalypseNow extends StatefulWidget {
+  ApocalypseNow({Key key}) : super(key: key);
 
   @override
-  _ProjectManagerState createState() => _ProjectManagerState();
+  _ApocalypseNowState createState() => _ApocalypseNowState();
 }
 
-class _ProjectManagerState extends State<ProjectManager> {
+class _ApocalypseNowState extends State<ApocalypseNow> {
   void _launchURL(String _url) async => await canLaunch(_url)
       ? await launch(_url)
       : throw 'Could not launch $_url';
 
   List<String> images = [
-    "lib/projects/projectManager/1.jpg",
-    "lib/projects/projectManager/2.jpg",
-    "lib/projects/projectManager/3.jpg",
-    "lib/projects/projectManager/4.jpg",
-    "lib/projects/projectManager/5.jpg",
-    "lib/projects/projectManager/6.jpg",
+    "lib/projects/apocalypseNow/ap1.jpg",
+    "lib/projects/apocalypseNow/ap2.jpg",
+    "lib/projects/apocalypseNow/ap3.jpg",
+    "lib/projects/apocalypseNow/ap4.jpg",
+    "lib/projects/apocalypseNow/ap5.jpg",
+    "lib/projects/apocalypseNow/ap6.jpg",
   ];
 
   @override
@@ -44,9 +43,9 @@ class _ProjectManagerState extends State<ProjectManager> {
 
     int _crossAxisCount = 4;
     if (_screenWidth > 2500) {
-      _crossAxisCount = 3;
+      _crossAxisCount = 4;
     } else if (_screenWidth > 1800) {
-      _crossAxisCount = 3;
+      _crossAxisCount = 4;
     } else if (_screenWidth > 1000) {
       _crossAxisCount = 3;
     } else if (_screenWidth > 700) {
@@ -64,7 +63,7 @@ class _ProjectManagerState extends State<ProjectManager> {
         child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
-              title: Text("Project Manager"),
+              title: Text("Apocalypse Now"),
               backgroundColor: Color(0xFF232323),
               expandedHeight: 60,
               snap: false,
@@ -88,34 +87,25 @@ class _ProjectManagerState extends State<ProjectManager> {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
-                          Text(
-                            "Project Manager",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF232323),
-                            ),
-                          ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width:
-                                  _screenWidth <= 800 ? double.maxFinite : 800,
-                              height: 250,
-                              child: FadeInTwo(
-                                0.8,
-                                Card(
-                                  elevation: 15,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Image.asset(
-                                      "lib/projects/projectManager/cidselDatabase.jpg",
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
+                            child: Text(
+                              "Apocalypse Now?",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF232323),
                               ),
+                            ),
+                          ),
+                          Text(
+                            "2019 Sun Jam Submission",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF232323),
                             ),
                           ),
                           Padding(
@@ -129,27 +119,8 @@ class _ProjectManagerState extends State<ProjectManager> {
                                 text: new TextSpan(
                                   children: [
                                     new TextSpan(
-                                      text: 'Developed for ',
-                                      style: new TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 18,
-                                      ),
-                                    ),
-                                    new TextSpan(
-                                      text: 'USC CIDSEL',
-                                      style: new TextStyle(
-                                        color: Colors.blue,
-                                        fontSize: 18,
-                                      ),
-                                      recognizer: new TapGestureRecognizer()
-                                        ..onTap = () {
-                                          _launchURL(
-                                              "https://www.usc.edu.au/community/international-development");
-                                        },
-                                    ),
-                                    new TextSpan(
                                       text:
-                                          ' in an effort to redesign their file management and increase productivity. Developed in Flutter, I built and tested the project in approximatly 5 months and is currently being actively used within the Department',
+                                          "You accidentally promised an apocalypse and became a cult leader. Now the date is fast approaching, and you need to plan your escape from your adoring followers, who are going to be really disappointed, and are totally nuts.\n\nRun from your Followers and don't let them catch you!  run from your personal Apocalypse for you have denied everyone else's.\n\n2019 Sun Jam Submission.\n",
                                       style: new TextStyle(
                                         color: Colors.black,
                                         fontSize: 18,
@@ -157,6 +128,22 @@ class _ProjectManagerState extends State<ProjectManager> {
                                     ),
                                   ],
                                 ),
+                              ),
+                            ),
+                          ),
+                          ElevatedButton.icon(
+                            onPressed: () {
+                              _launchURL(
+                                  "https://calkettle.itch.io/apocalypse-now");
+                            },
+                            icon: Icon(Icons.file_download),
+                            label: Container(
+                              width: 200,
+                              height: 50,
+                              alignment: Alignment.center,
+                              child: Text(
+                                "Download",
+                                style: TextStyle(fontSize: 20),
                               ),
                             ),
                           ),
@@ -194,6 +181,66 @@ class _ProjectManagerState extends State<ProjectManager> {
                                 ),
                               ),
                               itemCount: images.length,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Snail & Seek",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF232323),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "2019 Sun Jam Submission x2",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF232323),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: double.maxFinite,
+                              alignment: Alignment.topLeft,
+                              child: RichText(
+                                softWrap: true,
+                                textAlign: TextAlign.left,
+                                text: new TextSpan(
+                                  children: [
+                                    new TextSpan(
+                                      text:
+                                          "Battle your friend to find out who is the best snail and who is the best robot! Made in an extra 2hrs remaining at a gamejam!",
+                                      style: new TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          ElevatedButton.icon(
+                            onPressed: () {
+                              _launchURL(
+                                  "https://bennyght.itch.io/snailandseek");
+                            },
+                            icon: Icon(Icons.file_download),
+                            label: Container(
+                              width: 200,
+                              height: 50,
+                              alignment: Alignment.center,
+                              child: Text(
+                                "Download",
+                                style: TextStyle(fontSize: 20),
+                              ),
                             ),
                           ),
                         ],

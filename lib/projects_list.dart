@@ -1,4 +1,5 @@
 import 'package:benjamin_portfolio/fade_in.dart';
+import 'package:benjamin_portfolio/fade_in_two.dart';
 import 'package:benjamin_portfolio/projects_item.dart';
 import 'package:flutter/material.dart';
 
@@ -93,12 +94,13 @@ class _ProjectsListState extends State<ProjectsList> {
           ),
           GridView.builder(
             shrinkWrap: true,
+            physics: ClampingScrollPhysics(),
             padding: EdgeInsets.all(10),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
                 crossAxisCount: _crossAxisCount),
-            itemBuilder: (_, index) => FadeIn(0, sortedProjects[index]),
+            itemBuilder: (_, index) => FadeInTwo(0.8, sortedProjects[index]),
             itemCount: sortedProjects.length,
           ),
         ],

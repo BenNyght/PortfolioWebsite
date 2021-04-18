@@ -1,4 +1,5 @@
 import 'package:benjamin_portfolio/fade_in.dart';
+import 'package:benjamin_portfolio/fade_in_two.dart';
 import 'package:benjamin_portfolio/projects_list.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -39,9 +40,9 @@ class _AltARState extends State<AltAR> {
 
     int _crossAxisCount = 4;
     if (_screenWidth > 2500) {
-      _crossAxisCount = 5;
+      _crossAxisCount = 3;
     } else if (_screenWidth > 1800) {
-      _crossAxisCount = 4;
+      _crossAxisCount = 3;
     } else if (_screenWidth > 1000) {
       _crossAxisCount = 3;
     } else if (_screenWidth > 700) {
@@ -158,13 +159,16 @@ class _AltARState extends State<AltAR> {
                               width:
                                   _screenWidth <= 800 ? double.maxFinite : 800,
                               height: 250,
-                              child: Card(
-                                elevation: 15,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Image.asset(
-                                    "lib/projects/altAR/altAR.jpg",
-                                    fit: BoxFit.cover,
+                              child: FadeInTwo(
+                                0.8,
+                                Card(
+                                  elevation: 15,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Image.asset(
+                                      "lib/projects/altAR/altAR.jpg",
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -194,14 +198,15 @@ class _AltARState extends State<AltAR> {
                             padding: const EdgeInsets.all(8.0),
                             child: GridView.builder(
                               shrinkWrap: true,
+                              physics: ClampingScrollPhysics(),
                               padding: EdgeInsets.all(10),
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisSpacing: 10,
                                       mainAxisSpacing: 10,
                                       crossAxisCount: _crossAxisCount),
-                              itemBuilder: (_, index) => FadeIn(
-                                0,
+                              itemBuilder: (_, index) => FadeInTwo(
+                                0.8,
                                 Card(
                                   elevation: 8,
                                   shape: RoundedRectangleBorder(

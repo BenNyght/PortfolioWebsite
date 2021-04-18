@@ -1,29 +1,26 @@
 import 'package:benjamin_portfolio/fade_in.dart';
 import 'package:benjamin_portfolio/fade_in_two.dart';
-import 'package:benjamin_portfolio/projects_list.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ProjectManager extends StatefulWidget {
-  ProjectManager({Key key}) : super(key: key);
+class Conjoin extends StatefulWidget {
+  Conjoin({Key key}) : super(key: key);
 
   @override
-  _ProjectManagerState createState() => _ProjectManagerState();
+  _ConjoinState createState() => _ConjoinState();
 }
 
-class _ProjectManagerState extends State<ProjectManager> {
+class _ConjoinState extends State<Conjoin> {
   void _launchURL(String _url) async => await canLaunch(_url)
       ? await launch(_url)
       : throw 'Could not launch $_url';
 
   List<String> images = [
-    "lib/projects/projectManager/1.jpg",
-    "lib/projects/projectManager/2.jpg",
-    "lib/projects/projectManager/3.jpg",
-    "lib/projects/projectManager/4.jpg",
-    "lib/projects/projectManager/5.jpg",
-    "lib/projects/projectManager/6.jpg",
+    "lib/projects/conjoin/1.jpg",
+    "lib/projects/conjoin/2.jpg",
+    "lib/projects/conjoin/3.jpg",
+    "lib/projects/conjoin/4.jpg",
   ];
 
   @override
@@ -44,9 +41,9 @@ class _ProjectManagerState extends State<ProjectManager> {
 
     int _crossAxisCount = 4;
     if (_screenWidth > 2500) {
-      _crossAxisCount = 3;
+      _crossAxisCount = 4;
     } else if (_screenWidth > 1800) {
-      _crossAxisCount = 3;
+      _crossAxisCount = 4;
     } else if (_screenWidth > 1000) {
       _crossAxisCount = 3;
     } else if (_screenWidth > 700) {
@@ -64,7 +61,7 @@ class _ProjectManagerState extends State<ProjectManager> {
         child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
-              title: Text("Project Manager"),
+              title: Text("Conjoin"),
               backgroundColor: Color(0xFF232323),
               expandedHeight: 60,
               snap: false,
@@ -88,31 +85,20 @@ class _ProjectManagerState extends State<ProjectManager> {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
-                          Text(
-                            "Project Manager",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF232323),
-                            ),
-                          ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width:
-                                  _screenWidth <= 800 ? double.maxFinite : 800,
-                              height: 250,
-                              child: FadeInTwo(
-                                0.8,
-                                Card(
-                                  elevation: 15,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Image.asset(
-                                      "lib/projects/projectManager/cidselDatabase.jpg",
-                                      fit: BoxFit.cover,
-                                    ),
+                            child: FadeInTwo(
+                              0.8,
+                              Container(
+                                width: _screenWidth <= 800
+                                    ? double.maxFinite
+                                    : 800,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Image.asset(
+                                    "lib/projects/conjoin/ConjoinLogo.png",
+                                    fit: BoxFit.contain,
+                                    alignment: Alignment.center,
                                   ),
                                 ),
                               ),
@@ -120,42 +106,39 @@ class _ProjectManagerState extends State<ProjectManager> {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width: double.maxFinite,
-                              alignment: Alignment.topLeft,
-                              child: RichText(
-                                softWrap: true,
-                                textAlign: TextAlign.left,
-                                text: new TextSpan(
-                                  children: [
-                                    new TextSpan(
-                                      text: 'Developed for ',
-                                      style: new TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 18,
-                                      ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Flexible(
+                                  child: Container(
+                                    width: double.maxFinite,
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      "Conjoin! – A Simple yet addictive hex sorting puzzle game.\nPlay through dozens of levels, as you “Conjoin” matching hex’s and tidy up the screen. Designed to a be a simple and relaxing time. While challenging some of the toughest puzzle enthusiasts.\nFeatures:\n- Over 50+ Free Levels\n- Clean and Colourful Graphics\n- Fun Sound Effects",
+                                      softWrap: true,
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(fontSize: 18),
                                     ),
-                                    new TextSpan(
-                                      text: 'USC CIDSEL',
-                                      style: new TextStyle(
-                                        color: Colors.blue,
-                                        fontSize: 18,
-                                      ),
-                                      recognizer: new TapGestureRecognizer()
-                                        ..onTap = () {
-                                          _launchURL(
-                                              "https://www.usc.edu.au/community/international-development");
-                                        },
-                                    ),
-                                    new TextSpan(
-                                      text:
-                                          ' in an effort to redesign their file management and increase productivity. Developed in Flutter, I built and tested the project in approximatly 5 months and is currently being actively used within the Department',
-                                      style: new TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 18,
-                                      ),
-                                    ),
-                                  ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () => {
+                              _launchURL(
+                                  "https://play.google.com/store/apps/details?id=com.BenjaminFinlay.HexPuzzleGame"),
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: FadeInTwo(
+                                0.8,
+                                Container(
+                                  width: 251,
+                                  child: Image.asset(
+                                    "assets/general/getongoogleplay.png",
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
                               ),
                             ),

@@ -1,4 +1,5 @@
 import 'package:benjamin_portfolio/fade_in.dart';
+import 'package:benjamin_portfolio/fade_in_two.dart';
 import 'package:benjamin_portfolio/footer.dart';
 import 'package:benjamin_portfolio/projects.dart';
 import 'package:benjamin_portfolio/projects_list.dart';
@@ -56,9 +57,12 @@ class _HomeViewState extends State<HomeView> {
                 background: Stack(
                   fit: StackFit.expand,
                   children: [
-                    Image.asset(
-                      "assets/general/background.jpg",
-                      fit: BoxFit.cover,
+                    FadeInTwo(
+                      0.8,
+                      Image.asset(
+                        "assets/general/background.jpg",
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     Center(
                       child: FractionallySizedBox(

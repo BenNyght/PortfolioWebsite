@@ -1,29 +1,27 @@
 import 'package:benjamin_portfolio/fade_in.dart';
 import 'package:benjamin_portfolio/fade_in_two.dart';
-import 'package:benjamin_portfolio/projects_list.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ProjectManager extends StatefulWidget {
-  ProjectManager({Key key}) : super(key: key);
+class VRTreadmill extends StatefulWidget {
+  VRTreadmill({Key key}) : super(key: key);
 
   @override
-  _ProjectManagerState createState() => _ProjectManagerState();
+  _VRTreadmillState createState() => _VRTreadmillState();
 }
 
-class _ProjectManagerState extends State<ProjectManager> {
+class _VRTreadmillState extends State<VRTreadmill> {
   void _launchURL(String _url) async => await canLaunch(_url)
       ? await launch(_url)
       : throw 'Could not launch $_url';
 
   List<String> images = [
-    "lib/projects/projectManager/1.jpg",
-    "lib/projects/projectManager/2.jpg",
-    "lib/projects/projectManager/3.jpg",
-    "lib/projects/projectManager/4.jpg",
-    "lib/projects/projectManager/5.jpg",
-    "lib/projects/projectManager/6.jpg",
+    "lib/projects/vrTreadmill/Screenshot_4.png",
+    "lib/projects/vrTreadmill/Screenshot_5.png",
+    "lib/projects/vrTreadmill/omnitread.jpeg",
+    "lib/projects/vrTreadmill/tracker.webp",
+    "lib/projects/vrTreadmill/treadmill.jpg",
   ];
 
   @override
@@ -44,9 +42,9 @@ class _ProjectManagerState extends State<ProjectManager> {
 
     int _crossAxisCount = 4;
     if (_screenWidth > 2500) {
-      _crossAxisCount = 3;
+      _crossAxisCount = 4;
     } else if (_screenWidth > 1800) {
-      _crossAxisCount = 3;
+      _crossAxisCount = 4;
     } else if (_screenWidth > 1000) {
       _crossAxisCount = 3;
     } else if (_screenWidth > 700) {
@@ -64,7 +62,7 @@ class _ProjectManagerState extends State<ProjectManager> {
         child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
-              title: Text("Project Manager"),
+              title: Text("VR Treadmill"),
               backgroundColor: Color(0xFF232323),
               expandedHeight: 60,
               snap: false,
@@ -89,33 +87,12 @@ class _ProjectManagerState extends State<ProjectManager> {
                       child: Column(
                         children: [
                           Text(
-                            "Project Manager",
+                            "VR Treadmill Simulation",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 40,
                               fontWeight: FontWeight.bold,
                               color: Color(0xFF232323),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width:
-                                  _screenWidth <= 800 ? double.maxFinite : 800,
-                              height: 250,
-                              child: FadeInTwo(
-                                0.8,
-                                Card(
-                                  elevation: 15,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Image.asset(
-                                      "lib/projects/projectManager/cidselDatabase.jpg",
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              ),
                             ),
                           ),
                           Padding(
@@ -136,7 +113,7 @@ class _ProjectManagerState extends State<ProjectManager> {
                                       ),
                                     ),
                                     new TextSpan(
-                                      text: 'USC CIDSEL',
+                                      text: "Afnan Bashir's",
                                       style: new TextStyle(
                                         color: Colors.blue,
                                         fontSize: 18,
@@ -144,12 +121,31 @@ class _ProjectManagerState extends State<ProjectManager> {
                                       recognizer: new TapGestureRecognizer()
                                         ..onTap = () {
                                           _launchURL(
-                                              "https://www.usc.edu.au/community/international-development");
+                                              "https://www.linkedin.com/in/afnan-bashir-065ab744/");
+                                        },
+                                    ),
+                                    new TextSpan(
+                                      text: ' HDR under the supervision of ',
+                                      style: new TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    new TextSpan(
+                                      text: "Dr Christian Jones",
+                                      style: new TextStyle(
+                                        color: Colors.blue,
+                                        fontSize: 18,
+                                      ),
+                                      recognizer: new TapGestureRecognizer()
+                                        ..onTap = () {
+                                          _launchURL(
+                                              "https://www.linkedin.com/in/christian-jones-3864678/");
                                         },
                                     ),
                                     new TextSpan(
                                       text:
-                                          ' in an effort to redesign their file management and increase productivity. Developed in Flutter, I built and tested the project in approximatly 5 months and is currently being actively used within the Department',
+                                          ". This research aimed to compare walking in Virtual Reality on a regular treadmill compared to a 360 treadmill (Omnitread).\n\nSplit into two projects/contracts. The first project was to develop an effective way to track the participant's movement. This was done with six Vive trackers and inputting data points into a CSV file. The second project was to take the CSV and accurately recreate how the participant walked in a 3D visualizer.",
                                       style: new TextStyle(
                                         color: Colors.black,
                                         fontSize: 18,

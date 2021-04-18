@@ -1,29 +1,35 @@
 import 'package:benjamin_portfolio/fade_in.dart';
 import 'package:benjamin_portfolio/fade_in_two.dart';
-import 'package:benjamin_portfolio/projects_list.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ProjectManager extends StatefulWidget {
-  ProjectManager({Key key}) : super(key: key);
+class BattleDonut extends StatefulWidget {
+  BattleDonut({Key key}) : super(key: key);
 
   @override
-  _ProjectManagerState createState() => _ProjectManagerState();
+  _BattleDonutState createState() => _BattleDonutState();
 }
 
-class _ProjectManagerState extends State<ProjectManager> {
+class _BattleDonutState extends State<BattleDonut> {
   void _launchURL(String _url) async => await canLaunch(_url)
       ? await launch(_url)
       : throw 'Could not launch $_url';
 
   List<String> images = [
-    "lib/projects/projectManager/1.jpg",
-    "lib/projects/projectManager/2.jpg",
-    "lib/projects/projectManager/3.jpg",
-    "lib/projects/projectManager/4.jpg",
-    "lib/projects/projectManager/5.jpg",
-    "lib/projects/projectManager/6.jpg",
+    "lib/projects/battleDonut/bd1.png",
+    "lib/projects/battleDonut/bd2.png",
+    "lib/projects/battleDonut/bd3.png",
+    "lib/projects/battleDonut/bd4.png",
+    "lib/projects/battleDonut/bd5.png",
+    "lib/projects/battleDonut/bd6.png",
+    "lib/projects/battleDonut/bd7.png",
+    "lib/projects/battleDonut/bd8.png",
+    "lib/projects/battleDonut/bd9.png",
+    "lib/projects/battleDonut/bd10.gif",
+    "lib/projects/battleDonut/bd11.gif",
+    "lib/projects/battleDonut/bd12.png",
+    "lib/projects/battleDonut/bd13.png",
   ];
 
   @override
@@ -44,9 +50,9 @@ class _ProjectManagerState extends State<ProjectManager> {
 
     int _crossAxisCount = 4;
     if (_screenWidth > 2500) {
-      _crossAxisCount = 3;
+      _crossAxisCount = 4;
     } else if (_screenWidth > 1800) {
-      _crossAxisCount = 3;
+      _crossAxisCount = 4;
     } else if (_screenWidth > 1000) {
       _crossAxisCount = 3;
     } else if (_screenWidth > 700) {
@@ -64,7 +70,7 @@ class _ProjectManagerState extends State<ProjectManager> {
         child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
-              title: Text("Project Manager"),
+              title: Text("Battle Donut"),
               backgroundColor: Color(0xFF232323),
               expandedHeight: 60,
               snap: false,
@@ -88,31 +94,20 @@ class _ProjectManagerState extends State<ProjectManager> {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
-                          Text(
-                            "Project Manager",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF232323),
-                            ),
-                          ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width:
-                                  _screenWidth <= 800 ? double.maxFinite : 800,
-                              height: 250,
-                              child: FadeInTwo(
-                                0.8,
-                                Card(
-                                  elevation: 15,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Image.asset(
-                                      "lib/projects/projectManager/cidselDatabase.jpg",
-                                      fit: BoxFit.cover,
-                                    ),
+                            child: FadeInTwo(
+                              0.8,
+                              Container(
+                                width: _screenWidth <= 800
+                                    ? double.maxFinite
+                                    : 800,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Image.asset(
+                                    "lib/projects/battleDonut/title.png",
+                                    fit: BoxFit.contain,
+                                    alignment: Alignment.center,
                                   ),
                                 ),
                               ),
@@ -129,27 +124,16 @@ class _ProjectManagerState extends State<ProjectManager> {
                                 text: new TextSpan(
                                   children: [
                                     new TextSpan(
-                                      text: 'Developed for ',
+                                      text:
+                                          "This small game was originally designed to test and evaluate a custom built pathfinding, particle, and attacking script.\n\n",
                                       style: new TextStyle(
                                         color: Colors.black,
                                         fontSize: 18,
                                       ),
                                     ),
                                     new TextSpan(
-                                      text: 'USC CIDSEL',
-                                      style: new TextStyle(
-                                        color: Colors.blue,
-                                        fontSize: 18,
-                                      ),
-                                      recognizer: new TapGestureRecognizer()
-                                        ..onTap = () {
-                                          _launchURL(
-                                              "https://www.usc.edu.au/community/international-development");
-                                        },
-                                    ),
-                                    new TextSpan(
                                       text:
-                                          ' in an effort to redesign their file management and increase productivity. Developed in Flutter, I built and tested the project in approximatly 5 months and is currently being actively used within the Department',
+                                          '"Game Idea *eats donut*... What would it be like to be a meatball on a giant donut where you fight sprinkles… sure that’s a good game idea…"\n\nSurvive as long as possible, shooting sprinkles and dodging bullets! Make sure to get pickups as they might give you the needed boost to survive longer.\n\nControls:\nMove = W,A,S,D\nShoot = Left Mouse\nAim = Aim by moving the mouse to where you would like to shoot.\nPause = Esc Key',
                                       style: new TextStyle(
                                         color: Colors.black,
                                         fontSize: 18,
@@ -157,6 +141,22 @@ class _ProjectManagerState extends State<ProjectManager> {
                                     ),
                                   ],
                                 ),
+                              ),
+                            ),
+                          ),
+                          ElevatedButton.icon(
+                            onPressed: () {
+                              _launchURL(
+                                  "https://bennyght.itch.io/battledonut");
+                            },
+                            icon: Icon(Icons.file_download),
+                            label: Container(
+                              width: 200,
+                              height: 50,
+                              alignment: Alignment.center,
+                              child: Text(
+                                "Download",
+                                style: TextStyle(fontSize: 20),
                               ),
                             ),
                           ),

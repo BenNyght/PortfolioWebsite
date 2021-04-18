@@ -1,4 +1,5 @@
 import 'package:benjamin_portfolio/fade_in.dart';
+import 'package:benjamin_portfolio/fade_in_two.dart';
 import 'package:benjamin_portfolio/projects_list.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -154,14 +155,15 @@ class _GympieSupportState extends State<GympieSupport> {
                             padding: const EdgeInsets.all(8.0),
                             child: GridView.builder(
                               shrinkWrap: true,
+                              physics: ClampingScrollPhysics(),
                               padding: EdgeInsets.all(10),
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisSpacing: 10,
                                       mainAxisSpacing: 10,
                                       crossAxisCount: _crossAxisCount),
-                              itemBuilder: (_, index) => FadeIn(
-                                0,
+                              itemBuilder: (_, index) => FadeInTwo(
+                                0.8,
                                 Card(
                                   elevation: 8,
                                   shape: RoundedRectangleBorder(

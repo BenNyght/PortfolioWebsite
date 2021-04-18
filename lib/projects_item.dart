@@ -1,6 +1,18 @@
+import 'package:benjamin_portfolio/projects/3dAudio/3d_audio.dart';
 import 'package:benjamin_portfolio/projects/altAR/alt_ar.dart';
+import 'package:benjamin_portfolio/projects/apocalypseNow/apocalypse_now.dart';
+import 'package:benjamin_portfolio/projects/archegnomeies/archegnomeies.dart';
+import 'package:benjamin_portfolio/projects/battleDonut/battle_donut.dart';
+import 'package:benjamin_portfolio/projects/birdsOnShow/birds_on_show.dart';
+import 'package:benjamin_portfolio/projects/cityFight/city_fight.dart';
+import 'package:benjamin_portfolio/projects/conjoin/conjoin.dart';
+import 'package:benjamin_portfolio/projects/dndMapViewer/easy_tabletop.dart';
+import 'package:benjamin_portfolio/projects/flick/flick.dart';
 import 'package:benjamin_portfolio/projects/gympieSupport/gympie_support.dart';
 import 'package:benjamin_portfolio/projects/projectManager/project_manager.dart';
+import 'package:benjamin_portfolio/projects/runPharaohRun/run_pharaoh_run.dart';
+import 'package:benjamin_portfolio/projects/timeJump/time_jump.dart';
+import 'package:benjamin_portfolio/projects/vrTreadmill/vr_treadmill.dart';
 import 'package:benjamin_portfolio/work_in_progress.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -17,9 +29,9 @@ List<ProjectsItem> projectsList() {
     ProjectsItem(
       "VR Movement Tracking",
       DateTime(2020, 2, 29),
-      image: "lib/projects/vrMovementViewer/Screenshot_4.png",
+      image: "lib/projects/vrTreadmill/Screenshot_5.png",
       sort: ProjectsSort.professional,
-      navigation: WorkInProgress(),
+      navigation: VRTreadmill(),
     ),
     ProjectsItem(
       "Apocalypse Now? (48hr Sunjam 2019)",
@@ -27,7 +39,7 @@ List<ProjectsItem> projectsList() {
       dateStarted: DateTime(2019, 7, 15),
       image: "lib/projects/apocalypseNow/apocalypseNow.jpg",
       sort: ProjectsSort.gamejam,
-      navigation: WorkInProgress(),
+      navigation: ApocalypseNow(),
     ),
     ProjectsItem(
       "Time Jump (48hr Sunjam 2018)",
@@ -35,7 +47,7 @@ List<ProjectsItem> projectsList() {
       dateStarted: DateTime(2018, 7, 15),
       image: "lib/projects/timeJump/timeJump.png",
       sort: ProjectsSort.gamejam,
-      navigation: WorkInProgress(),
+      navigation: TimeJump(),
     ),
     ProjectsItem(
       "Flick (48hr Global Game Jam 2019)",
@@ -43,7 +55,7 @@ List<ProjectsItem> projectsList() {
       dateStarted: DateTime(2019, 1, 27),
       image: "lib/projects/flick/flick.jpg",
       sort: ProjectsSort.gamejam,
-      navigation: WorkInProgress(),
+      navigation: Flick(),
     ),
     ProjectsItem(
       "Run Pharaoh Run!",
@@ -51,7 +63,7 @@ List<ProjectsItem> projectsList() {
       dateStarted: DateTime(2020, 1, 27),
       image: "lib/projects/runPharaohRun/runPharaohRun.jpg",
       sort: ProjectsSort.gamejam,
-      navigation: WorkInProgress(),
+      navigation: RunPharaohRun(),
     ),
     ProjectsItem(
       "Nyght's 3D Audio",
@@ -59,29 +71,21 @@ List<ProjectsItem> projectsList() {
       dateStarted: DateTime(2020, 8, 16),
       image: "lib/projects/3dAudio/audiologo.png",
       sort: ProjectsSort.gamejam,
-      navigation: WorkInProgress(),
+      navigation: ThreeDAudio(),
     ),
     ProjectsItem(
       "Easy Tabletop Tools",
       DateTime(2020, 3, 1),
       image: "lib/projects/dndMapViewer/d&dViewerLogo.png",
       sort: ProjectsSort.personal,
-      navigation: WorkInProgress(),
+      navigation: EasyTabletop(),
     ),
     ProjectsItem(
       "CityFight (Digital Re-imagining)",
       DateTime(2019, 11, 13),
       image: "lib/projects/cityFight/cityFightLogo.png",
       sort: ProjectsSort.professional,
-      navigation: WorkInProgress(),
-    ),
-    ProjectsItem(
-      "Snail & Seek (48hr Sunjam 2019)",
-      DateTime(2019, 7, 12),
-      dateStarted: DateTime(2019, 7, 15),
-      image: "lib/projects/snailAndSeek/snailAndSeek.png",
-      sort: ProjectsSort.gamejam,
-      navigation: WorkInProgress(),
+      navigation: CityFight(),
     ),
     ProjectsItem(
       "BirdsOnShow AR App",
@@ -89,7 +93,7 @@ List<ProjectsItem> projectsList() {
       dateStarted: DateTime(2019, 8, 16),
       image: "lib/projects/birdsOnShow/birds.jpg",
       sort: ProjectsSort.professional,
-      navigation: WorkInProgress(),
+      navigation: BirdsOnShow(),
     ),
     ProjectsItem(
       "Battle Donut",
@@ -97,7 +101,7 @@ List<ProjectsItem> projectsList() {
       dateStarted: DateTime(2019, 10, 1),
       image: "lib/projects/battleDonut/battleDonut.png",
       sort: ProjectsSort.university,
-      navigation: WorkInProgress(),
+      navigation: BattleDonut(),
     ),
     ProjectsItem(
       "Arch E-Gnome-ies",
@@ -105,14 +109,14 @@ List<ProjectsItem> projectsList() {
       dateStarted: DateTime(2019, 4, 1),
       image: "lib/projects/archegnomeies/archegnomeies.png",
       sort: ProjectsSort.university,
-      navigation: WorkInProgress(),
+      navigation: Archegnomeies(),
     ),
     ProjectsItem(
       "Conjoin",
       DateTime(2020, 10, 18),
       image: "lib/projects/conjoin/conjoin.jpg",
       sort: ProjectsSort.personal,
-      navigation: WorkInProgress(),
+      navigation: Conjoin(),
     ),
     ProjectsItem(
       "Project Manager",

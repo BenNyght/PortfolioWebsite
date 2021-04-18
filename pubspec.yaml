@@ -63,9 +63,7 @@ flutter:
     - lib/projects/gympieSupport/
     - lib/projects/projectManager/
     - lib/projects/runPharaohRun/
-    - lib/projects/snailAndSeek/
     - lib/projects/timeJump/
-    - lib/projects/vrMovementViewer/
     - lib/projects/vrTreadmill/
     - lib/projects/altAR/
 
