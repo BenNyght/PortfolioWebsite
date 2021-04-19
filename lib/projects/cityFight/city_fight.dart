@@ -136,7 +136,26 @@ class _CityFightState extends State<CityFight> {
                                     ),
                                     new TextSpan(
                                       text:
-                                          ' to prototype the idea of using games to teach urban combat strategies. In an effort to reduce the complexity and costs of other training activities.',
+                                          ' to prototype the idea of using games to teach urban combat strategies to the Australian Army. In an effort to overcome the "',
+                                      style: new TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    new TextSpan(
+                                      text: "Urban Challenge",
+                                      style: new TextStyle(
+                                        color: Colors.blue,
+                                        fontSize: 18,
+                                      ),
+                                      recognizer: new TapGestureRecognizer()
+                                        ..onTap = () {
+                                          _launchURL(
+                                              "https://www.linkedin.com/in/charles-knight-36707367/");
+                                        },
+                                    ),
+                                    new TextSpan(
+                                      text: '"\n\n',
                                       style: new TextStyle(
                                         color: Colors.black,
                                         fontSize: 18,
@@ -146,6 +165,60 @@ class _CityFightState extends State<CityFight> {
                                 ),
                               ),
                             ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "The Urban Challenge",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF232323),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Flexible(
+                                  child: Container(
+                                    width: double.maxFinite,
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      "This seminar explores: A 12 Vulnerabilities Construct as a way to comprehend the urban challenge; Australian Army ‘fitness for purpose’ against a range of historical urban cases; the puzzle of missing urban capability as an opportunity; and eight exploratory ‘capability constructs’.\n",
+                                      softWrap: true,
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(fontSize: 18),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          ElevatedButton.icon(
+                            onPressed: () {
+                              _launchURL(
+                                  "https://researchcentre.army.gov.au/library/seminar-series/urban-challenge");
+                            },
+                            icon: Icon(Icons.play_arrow),
+                            label: Container(
+                              width: 200,
+                              height: 50,
+                              alignment: Alignment.center,
+                              child: Text(
+                                "The Urban Challenge",
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
