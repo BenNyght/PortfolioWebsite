@@ -9,6 +9,7 @@ import 'package:benjamin_portfolio/projects/conjoin/conjoin.dart';
 import 'package:benjamin_portfolio/projects/dndMapViewer/easy_tabletop.dart';
 import 'package:benjamin_portfolio/projects/flick/flick.dart';
 import 'package:benjamin_portfolio/projects/gympieSupport/gympie_support.dart';
+import 'package:benjamin_portfolio/projects/papersimulation/paper_simuation.dart';
 import 'package:benjamin_portfolio/projects/projectManager/project_manager.dart';
 import 'package:benjamin_portfolio/projects/runPharaohRun/run_pharaoh_run.dart';
 import 'package:benjamin_portfolio/projects/timeJump/time_jump.dart';
@@ -131,6 +132,13 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/gympieSupport/gympieSupport.jpg",
       sort: ProjectsSort.professional,
       navigation: GympieSupport(),
+    ),
+    ProjectsItem(
+      "Paper Sorting Simulation",
+      DateTime(2021, 7, 15),
+      image: "lib/projects/papersimulation/2.jpg",
+      sort: ProjectsSort.professional,
+      navigation: PaperSimulation(),
     ),
   ];
 }

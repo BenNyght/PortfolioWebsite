@@ -3,7 +3,9 @@ import 'package:benjamin_portfolio/fade_in_two.dart';
 import 'package:benjamin_portfolio/projects_list.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:benjamin_portfolio/image_popup.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class AltAR extends StatefulWidget {
   AltAR({Key key}) : super(key: key);
@@ -21,6 +23,16 @@ class _AltARState extends State<AltAR> {
     "lib/projects/altAR/VoidwithOrb.png",
     "lib/projects/altAR/altAR.jpg"
   ];
+
+  YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: 'ORoaMWNqL2E',
+    params: YoutubePlayerParams(
+      playlist: ['ORoaMWNqL2E'], // Defining custom playlist
+      startAt: Duration(seconds: 0),
+      showControls: true,
+      showFullscreenButton: true,
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -155,27 +167,6 @@ class _AltARState extends State<AltAR> {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width:
-                                  _screenWidth <= 800 ? double.maxFinite : 800,
-                              height: 250,
-                              child: FadeInTwo(
-                                0.8,
-                                Card(
-                                  elevation: 15,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Image.asset(
-                                      "lib/projects/altAR/altAR.jpg",
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -196,6 +187,26 @@ class _AltARState extends State<AltAR> {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width:
+                                  _screenWidth <= 800 ? double.maxFinite : 800,
+                              child: FadeInTwo(
+                                0.8,
+                                Card(
+                                  elevation: 15,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: YoutubePlayerIFrame(
+                                      controller: _controller,
+                                      aspectRatio: 16 / 9,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
                             child: GridView.builder(
                               shrinkWrap: true,
                               physics: ClampingScrollPhysics(),
@@ -207,20 +218,26 @@ class _AltARState extends State<AltAR> {
                                       crossAxisCount: _crossAxisCount),
                               itemBuilder: (_, index) => FadeInTwo(
                                 0.8,
-                                Card(
-                                  elevation: 8,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15.0),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        image: DecorationImage(
-                                          image: AssetImage(images[index]),
-                                          fit: BoxFit.cover,
-                                          alignment: Alignment.center,
+                                GestureDetector(
+                                  onPanDown: (_) => {
+                                    ImagePopup()
+                                        .openImage(context, images[index])
+                                  },
+                                  child: Card(
+                                    elevation: 8,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          image: DecorationImage(
+                                            image: AssetImage(images[index]),
+                                            fit: BoxFit.cover,
+                                            alignment: Alignment.center,
+                                          ),
                                         ),
                                       ),
                                     ),

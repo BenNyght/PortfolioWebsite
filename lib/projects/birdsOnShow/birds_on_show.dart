@@ -1,5 +1,6 @@
 import 'package:benjamin_portfolio/fade_in.dart';
 import 'package:benjamin_portfolio/fade_in_two.dart';
+import 'package:benjamin_portfolio/image_popup.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -33,7 +34,7 @@ class _BirdsOnShowState extends State<BirdsOnShow> {
     "lib/projects/birdsOnShow/target5_scaled.jpg",
   ];
 
-  bool displayTargets = false;
+  bool displayTargets = true;
 
   @override
   Widget build(BuildContext context) {
@@ -180,20 +181,26 @@ class _BirdsOnShowState extends State<BirdsOnShow> {
                                       crossAxisCount: _crossAxisCount),
                               itemBuilder: (_, index) => FadeInTwo(
                                 0.8,
-                                Card(
-                                  elevation: 8,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15.0),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        image: DecorationImage(
-                                          image: AssetImage(images[index]),
-                                          fit: BoxFit.cover,
-                                          alignment: Alignment.center,
+                                GestureDetector(
+                                  onPanDown: (_) => {
+                                    ImagePopup()
+                                        .openImage(context, images[index])
+                                  },
+                                  child: Card(
+                                    elevation: 8,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          image: DecorationImage(
+                                            image: AssetImage(images[index]),
+                                            fit: BoxFit.cover,
+                                            alignment: Alignment.center,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -221,22 +228,28 @@ class _BirdsOnShowState extends State<BirdsOnShow> {
                                           crossAxisCount: _crossAxisCount),
                                   itemBuilder: (_, index) => FadeInTwo(
                                     0.8,
-                                    Card(
-                                      elevation: 8,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(15.0),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            image: DecorationImage(
-                                              image:
-                                                  AssetImage(arImages[index]),
-                                              fit: BoxFit.cover,
-                                              alignment: Alignment.center,
+                                    GestureDetector(
+                                      onPanDown: (_) => {
+                                        ImagePopup()
+                                            .openImage(context, arImages[index])
+                                      },
+                                      child: Card(
+                                        elevation: 8,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15.0),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              image: DecorationImage(
+                                                image:
+                                                    AssetImage(arImages[index]),
+                                                fit: BoxFit.cover,
+                                                alignment: Alignment.center,
+                                              ),
                                             ),
                                           ),
                                         ),
