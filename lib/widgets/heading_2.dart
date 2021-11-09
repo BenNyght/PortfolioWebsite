@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+
+// ignore: must_be_immutable
+class HeadingTwo extends StatefulWidget {
+  String text;
+  HeadingTwo(this.text);
+
+  @override
+  _HeadingTwoState createState() => _HeadingTwoState();
+}
+
+class _HeadingTwoState extends State<HeadingTwo> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(8, 23, 8, 8),
+      child: Container(
+        width: double.maxFinite,
+        alignment: Alignment.centerLeft,
+        child: RichText(
+          softWrap: false,
+          textAlign: TextAlign.left,
+          text: new TextSpan(
+            children: [
+              new TextSpan(
+                text: widget.text,
+                style: new TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 25,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

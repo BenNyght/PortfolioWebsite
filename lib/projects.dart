@@ -1,4 +1,3 @@
-import 'package:benjamin_portfolio/fade_in.dart';
 import 'package:benjamin_portfolio/projects_list.dart';
 import 'package:flutter/material.dart';
 

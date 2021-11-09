@@ -1,5 +1,4 @@
-import 'package:benjamin_portfolio/fade_in.dart';
-import 'package:benjamin_portfolio/fade_in_two.dart';
+import 'package:benjamin_portfolio/widgets/fade_in_two.dart';
 import 'package:benjamin_portfolio/projects_item.dart';
 import 'package:flutter/material.dart';
 
@@ -40,6 +39,7 @@ class _ProjectsListState extends State<ProjectsList> {
       }
     }
 
+    // ignore: deprecated_member_use
     List<ProjectsItem> sortedProjects = new List<ProjectsItem>();
     for (var i = 0; i < projectsList().length; i++) {
       if (sortActive[projectsList()[i].sort]) {

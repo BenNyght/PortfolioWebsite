@@ -1,8 +1,5 @@
-import 'package:benjamin_portfolio/fade_in.dart';
-import 'package:benjamin_portfolio/fade_in_two.dart';
-import 'package:benjamin_portfolio/footer.dart';
+import 'package:benjamin_portfolio/widgets/fade_in_two.dart';
 import 'package:benjamin_portfolio/projects.dart';
-import 'package:benjamin_portfolio/projects_list.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -114,7 +111,7 @@ class _HomeViewState extends State<HomeView> {
                                   ElevatedButton.icon(
                                     onPressed: () {
                                       _launchURL(
-                                          "https://drive.google.com/file/d/1TuM2GcaGt2Pf0J1ajMGz35C-UJcgyWQJ/view?usp=sharing");
+                                          "https://drive.google.com/file/d/1LkNceeLwcVvPxhK7glDpKZ9Cm4Q0bVru/view?usp=sharing");
                                     },
                                     icon: Icon(Icons.picture_as_pdf),
                                     label: Text("Resume"),

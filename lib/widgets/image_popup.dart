@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 
 class ImagePopup {
   void openImage(BuildContext context, String image) {
@@ -12,6 +11,7 @@ class ImagePopup {
             fit: BoxFit.contain,
           ),
           actions: <Widget>[
+            // ignore: deprecated_member_use
             new RaisedButton(
                 child: new Text("CLOSE"),
                 onPressed: () => Navigator.of(context).pop()),
