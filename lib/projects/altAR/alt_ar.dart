@@ -83,8 +83,11 @@ class _AltARState extends State<AltAR> {
                   "Combining ancient ceremonial knowledge and top secret technology we will summon a being from another world. By entangling our brains with it on a quantum level we will lure it into a virtual environment that acts as an air-lock between our worlds. We would like to reassure you that all safety measures have been put in place and nothing could possibly go wrong. This experience occurs in Virtual Reality, Mixed Reality, and in Real Life."),
               YoutubeVideo(title: "Trailer", youtubeVideoId: "ORoaMWNqL2E"),
               ImageLibrary(images: [
-                "lib/projects/altAR/VoidwithOrb.png",
-                "lib/projects/altAR/altAR.jpg"
+                "lib/projects/altAR/alt1.jpg",
+                "lib/projects/altAR/alt2.jpg",
+                "lib/projects/altAR/alt3.jpg",
+                "lib/projects/altAR/alt4.jpg",
+                "lib/projects/altAR/altAR.jpg",
               ]),
             ]),
           ],

@@ -18,7 +18,7 @@ class _HeadingTwoState extends State<HeadingTwo> {
         width: double.maxFinite,
         alignment: Alignment.centerLeft,
         child: RichText(
-          softWrap: false,
+          softWrap: true,
           textAlign: TextAlign.left,
           text: new TextSpan(
             children: [

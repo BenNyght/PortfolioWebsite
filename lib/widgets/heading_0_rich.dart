@@ -19,7 +19,7 @@ class _HeadingZeroRichState extends State<HeadingZeroRich> {
         alignment: Alignment.topLeft,
         child: RichText(
           softWrap: true,
-          textAlign: TextAlign.left,
+          textAlign: TextAlign.justify,
           text: new TextSpan(
             children: widget.textChildren,
           ),

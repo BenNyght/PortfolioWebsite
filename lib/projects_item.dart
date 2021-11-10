@@ -160,7 +160,7 @@ List<ProjectsItem> projectsList() {
       navigation: ProjectManager(),
     ),
     ProjectsItem(
-      "Gympie Support",
+      "Hometown Buddy (Gympie Region)",
       DateTime(2020, 12, 18),
       image: "lib/projects/gympieSupport/gympieSupport.jpg",
       companyImage: "lib/projects/gympieSupport/CommunityActionCover.png",
@@ -230,9 +230,9 @@ class ProjectsItem extends StatelessWidget {
     return OnHover(builder: (isHovered) {
       final color = isHovered
           ? Colors.blueGrey[100].withOpacity(0)
-          : Colors.blueGrey[100].withOpacity(0.25);
+          : Colors.blueGrey[100].withOpacity(0.2);
       return PhysicalModel(
-        color: Colors.white,
+        color: Colors.transparent,
         elevation: hoverOver ? 16 : 0,
         child: GestureDetector(
           onTap: () {
@@ -247,7 +247,11 @@ class ProjectsItem extends StatelessWidget {
           child: Card(
             elevation: 8,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(0),
+                  topRight: Radius.circular(0),
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15)),
             ),
             child: Column(
               children: [

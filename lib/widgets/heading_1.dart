@@ -18,7 +18,7 @@ class _HeadingOneState extends State<HeadingOne> {
         width: double.maxFinite,
         alignment: Alignment.center,
         child: RichText(
-          softWrap: false,
+          softWrap: true,
           textAlign: TextAlign.center,
           text: new TextSpan(
             children: [

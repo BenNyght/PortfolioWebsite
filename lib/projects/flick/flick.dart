@@ -23,7 +23,7 @@ class _FlickState extends State<Flick> {
         right: true,
         child: CustomScrollView(
           slivers: <Widget>[
-            ProjectAppBar(title: "assets/general/background.jpg"),
+            ProjectAppBar(title: "Flick"),
             ProjectContent(children: [
               HeadingOne("Flick"),
               HeadingTwo("2019 Global GameJam Submission"),

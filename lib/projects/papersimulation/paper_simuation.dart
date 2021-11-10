@@ -29,7 +29,7 @@ class _PaperSimulationState extends State<PaperSimulation> {
           slivers: <Widget>[
             ProjectAppBar(title: "Paper Sorting Simulation"),
             ProjectContent(children: [
-              HeadingOne("Paper Sorting Simulation"),
+              HeadingOne("VR Paper Sorting Simulation"),
               HeadingZeroRich([
                 new TextSpan(
                   text: 'Developed for the ',
@@ -39,7 +39,7 @@ class _PaperSimulationState extends State<PaperSimulation> {
                   ),
                 ),
                 new TextSpan(
-                  text: 'Endeavour Foundation',
+                  text: "Endeavour Foundation's",
                   style: new TextStyle(
                     color: Colors.blue,
                     fontSize: 18,
@@ -51,7 +51,26 @@ class _PaperSimulationState extends State<PaperSimulation> {
                 ),
                 new TextSpan(
                   text:
-                      ' Document Destruction facilities. This project had two primary goals. One paper sorting simulation and the second a 360 video training course.',
+                      ' Document Destruction facilities in collaboration with the ',
+                  style: new TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                  ),
+                ),
+                new TextSpan(
+                  text: "Engage Research Lab",
+                  style: new TextStyle(
+                    color: Colors.blue,
+                    fontSize: 18,
+                  ),
+                  recognizer: new TapGestureRecognizer()
+                    ..onTap = () {
+                      _launchURL("https://engageresearch.org/");
+                    },
+                ),
+                new TextSpan(
+                  text:
+                      '. This project had two primary goals—one paper sorting simulation and the second a 360 video training course. The paper sorting simulation is a training tool to teach how and what to sort from the facilities conveyor belt shredder. The 360 video training course is a multiple choice training tool to teach the safety processes of each document destruction facility.',
                   style: new TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -64,6 +83,7 @@ class _PaperSimulationState extends State<PaperSimulation> {
                 "lib/projects/papersimulation/3.jpg",
                 "lib/projects/papersimulation/4.jpg",
                 "lib/projects/papersimulation/EDVR.jpg",
+                "lib/projects/papersimulation/Engage-Research-Logo-Large-Dark.png",
               ]),
             ]),
           ],

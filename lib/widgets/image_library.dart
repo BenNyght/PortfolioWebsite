@@ -45,7 +45,7 @@ class _ImageLibraryState extends State<ImageLibrary> {
           0.8,
           OnHover(builder: (isHovered) {
             return PhysicalModel(
-              color: Colors.white,
+              color: Colors.transparent,
               elevation: hoverOver ? 16 : 0,
               child: GestureDetector(
                 onPanDown: (_) =>
@@ -59,6 +59,7 @@ class _ImageLibraryState extends State<ImageLibrary> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
                         color: Colors.white,
                         image: DecorationImage(
                           image: AssetImage(widget.images[index]),

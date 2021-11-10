@@ -4,6 +4,7 @@ import 'package:benjamin_portfolio/widgets/heading_2.dart';
 import 'package:benjamin_portfolio/widgets/image_library.dart';
 import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
 import 'package:benjamin_portfolio/widgets/project_content.dart';
+import 'package:benjamin_portfolio/widgets/website_button.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -13,10 +14,6 @@ class EasyTabletop extends StatefulWidget {
 }
 
 class _EasyTabletopState extends State<EasyTabletop> {
-  void _launchURL(String _url) async => await canLaunch(_url)
-      ? await launch(_url)
-      : throw 'Could not launch $_url';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,28 +28,14 @@ class _EasyTabletopState extends State<EasyTabletop> {
             ProjectContent(children: [
               HeadingOne("🐉 Easy Tabletop"),
               HeadingZero(
-                  "Originally created for the Dungeons and Dragons Social group at USC. This software has evolved over time and is being updated when necessary. While still being actively used in several tabletop groups."),
+                  "Originally created for the Dungeons and Dragons esports group at USC. This software has evolved over time and is being updated when necessary. While still being actively used in several tabletop groups."),
               SizedBox(
                 height: 10,
               ),
               HeadingTwo("Features"),
               HeadingZero(
                   "Mapview:\n- Load images(maps) from the computer.\n- Select menu with image preview.\n- Fog of war.\n- Camera controls. Scroll to zoom, Hold right-click to pan the camera, Q and E to rotate.\n\nTimeline Library: \n- Mapped out timelines for Forgotten Realms, Eberron, Dark Sun, Dragonlance, Greyhawk, Mystara, Planescape, Ravenloft, and Spelljammer.\n"),
-              ElevatedButton.icon(
-                onPressed: () {
-                  _launchURL("https://easytabletop.web.app/");
-                },
-                icon: Icon(Icons.open_in_browser),
-                label: Container(
-                  width: 200,
-                  height: 50,
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Open Easy Tabletop",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-              ),
+              WebsiteButton(link: "https://easytabletop.web.app/"),
               ImageLibrary(images: [
                 "lib/projects/dndMapViewer/1.jpg",
                 "lib/projects/dndMapViewer/2.jpg",

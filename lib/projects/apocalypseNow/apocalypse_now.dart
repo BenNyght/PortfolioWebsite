@@ -43,9 +43,15 @@ class _ApocalypseNowState extends State<ApocalypseNow> {
                 HeadingOne("Snail & Seek"),
                 HeadingTwo("2019 Sun Jam Submission x2"),
                 HeadingZero(
-                    "Battle your friend to find out who is the best snail and who is the best robot! Made in an extra 2hrs remaining at a gamejam!"),
+                    "Built in Google Game Builder. Battle your friend to find out who is the best snail and who is the best robot! Made in an extra 2hrs remaining at a gamejam!"),
                 DownloadButton(
                     downloadLink: "https://bennyght.itch.io/snailandseek"),
+                ImageLibrary(images: [
+                  "lib/projects/apocalypseNow/snail1.jpg",
+                  "lib/projects/apocalypseNow/snail2.jpg",
+                  "lib/projects/apocalypseNow/snail3.jpg",
+                ]),
+                SizedBox(height: 100),
               ],
             ),
           ],

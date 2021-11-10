@@ -1,4 +1,5 @@
 import 'package:benjamin_portfolio/widgets/fade_in_two.dart';
+import 'package:benjamin_portfolio/widgets/google_play_button.dart';
 import 'package:benjamin_portfolio/widgets/heading_0.dart';
 import 'package:benjamin_portfolio/widgets/image_library.dart';
 import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
@@ -48,25 +49,9 @@ class _ConjoinState extends State<Conjoin> {
               ),
               HeadingZero(
                   "Conjoin! – A Simple yet addictive hex sorting puzzle game.\nPlay through dozens of levels, as you “Conjoin” matching hex’s and tidy up the screen. Designed to a be a simple and relaxing time. While challenging some of the toughest puzzle enthusiasts.\nFeatures:\n- Over 50+ Free Levels\n- Clean and Colourful Graphics\n- Fun Sound Effects"),
-              GestureDetector(
-                onTap: () => {
-                  _launchURL(
+              GooglePlayButton(
+                  link:
                       "https://play.google.com/store/apps/details?id=com.BenjaminFinlay.HexPuzzleGame"),
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: FadeInTwo(
-                    0.8,
-                    Container(
-                      width: 251,
-                      child: Image.asset(
-                        "assets/general/getongoogleplay.png",
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
               ImageLibrary(images: [
                 "lib/projects/conjoin/1.jpg",
                 "lib/projects/conjoin/2.jpg",

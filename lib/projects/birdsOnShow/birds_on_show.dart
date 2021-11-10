@@ -1,3 +1,4 @@
+import 'package:benjamin_portfolio/widgets/app_store_button.dart';
 import 'package:benjamin_portfolio/widgets/fade_in_two.dart';
 import 'package:benjamin_portfolio/widgets/heading_0_rich.dart';
 import 'package:benjamin_portfolio/widgets/heading_1.dart';
@@ -62,25 +63,9 @@ class _BirdsOnShowState extends State<BirdsOnShow> {
                   ),
                 ),
               ]),
-              GestureDetector(
-                onTap: () => {
-                  _launchURL(
+              AppStoreButton(
+                  link:
                       "https://apps.apple.com/au/app/mary-cairncross-birds-on-show/id1477947473"),
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 251,
-                    child: FadeInTwo(
-                      0.8,
-                      Image.asset(
-                        "assets/general/downloadonappstore.png",
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
               ImageLibrary(images: [
                 "lib/projects/birdsOnShow/birds.jpg",
                 "lib/projects/birdsOnShow/bird2.jpg",

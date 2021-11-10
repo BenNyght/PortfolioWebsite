@@ -1,9 +1,11 @@
 import 'package:benjamin_portfolio/widgets/fade_in_two.dart';
+import 'package:benjamin_portfolio/widgets/google_play_button.dart';
 import 'package:benjamin_portfolio/widgets/heading_0_rich.dart';
 import 'package:benjamin_portfolio/widgets/heading_1.dart';
 import 'package:benjamin_portfolio/widgets/image_library.dart';
 import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
 import 'package:benjamin_portfolio/widgets/project_content.dart';
+import 'package:benjamin_portfolio/widgets/youtube_video.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -28,9 +30,9 @@ class _GympieSupportState extends State<GympieSupport> {
         right: true,
         child: CustomScrollView(
           slivers: <Widget>[
-            ProjectAppBar(title: "Project Manager"),
+            ProjectAppBar(title: "Hometown Buddy"),
             ProjectContent(children: [
-              HeadingOne("Gympie Support"),
+              HeadingOne("Hometown Buddy (Gympie Region)"),
               HeadingZeroRich([
                 new TextSpan(
                   text: 'Developed for the ',
@@ -59,25 +61,10 @@ class _GympieSupportState extends State<GympieSupport> {
                   ),
                 ),
               ]),
-              GestureDetector(
-                onTap: () => {
-                  _launchURL(
+              GooglePlayButton(
+                  link:
                       "https://play.google.com/store/apps/details?id=com.gympie.hometown_buddy"),
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: FadeInTwo(
-                    0.8,
-                    Container(
-                      width: 251,
-                      child: Image.asset(
-                        "assets/general/getongoogleplay.png",
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              YoutubeVideo(title: "News Clip", youtubeVideoId: "1YeKgxOzbOg"),
               ImageLibrary(images: [
                 "lib/projects/gympieSupport/1.jpg",
                 "lib/projects/gympieSupport/2.jpg",
