@@ -16,12 +16,21 @@ import 'package:benjamin_portfolio/projects/projectManager/project_manager.dart'
 import 'package:benjamin_portfolio/projects/runPharaohRun/run_pharaoh_run.dart';
 import 'package:benjamin_portfolio/projects/timeJump/time_jump.dart';
 import 'package:benjamin_portfolio/projects/vrTreadmill/vr_treadmill.dart';
+import 'package:benjamin_portfolio/projects/anatoMe/anatome.dart';
 import 'package:benjamin_portfolio/widgets/on_hover.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 List<ProjectsItem> projectsList() {
   return [
+    ProjectsItem(
+      "AnatoMe",
+      DateTime(2021, 12, 11),
+      image: "lib/projects/anatoMe/AnatoMe.png",
+      companyImage: "lib/projects/anatoMe/SpinDriftCover.png",
+      sort: ProjectsSort.professional,
+      navigation: AnatoMe(),
+    ),
     ProjectsItem(
       "Portfolio",
       DateTime(2019, 1, 1),
