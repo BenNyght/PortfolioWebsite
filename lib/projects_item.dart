@@ -8,12 +8,14 @@ import 'package:benjamin_portfolio/projects/birdsOnShow/birds_on_show.dart';
 import 'package:benjamin_portfolio/projects/cityFight/city_fight.dart';
 import 'package:benjamin_portfolio/projects/conjoin/conjoin.dart';
 import 'package:benjamin_portfolio/projects/dndMapViewer/easy_tabletop.dart';
+import 'package:benjamin_portfolio/projects/fishybits2/fishybits2.dart';
 import 'package:benjamin_portfolio/projects/flick/flick.dart';
 import 'package:benjamin_portfolio/projects/gympieSupport/gympie_support.dart';
 import 'package:benjamin_portfolio/projects/papersimulation/paper_simuation.dart';
 import 'package:benjamin_portfolio/projects/portfolio/portfolio.dart';
 import 'package:benjamin_portfolio/projects/projectManager/project_manager.dart';
 import 'package:benjamin_portfolio/projects/runPharaohRun/run_pharaoh_run.dart';
+import 'package:benjamin_portfolio/projects/shibaEternity/shibaeternity.dart';
 import 'package:benjamin_portfolio/projects/timeJump/time_jump.dart';
 import 'package:benjamin_portfolio/projects/vrTreadmill/vr_treadmill.dart';
 import 'package:benjamin_portfolio/projects/anatoMe/anatome.dart';
@@ -23,6 +25,22 @@ import 'package:intl/intl.dart';
 
 List<ProjectsItem> projectsList() {
   return [
+    ProjectsItem(
+      "Shiba Eternity",
+      DateTime(2022, 10, 19),
+      image: "lib/projects/shibaeternity/Shiba_Eternity_Logo.png",
+      companyImage: "lib/projects/fishybits2/PlaySideCover.png",
+      sort: ProjectsSort.professional,
+      navigation: ShibaEternity(),
+    ),
+    ProjectsItem(
+      "Fishy Bits 2",
+      DateTime(2022, 5, 15),
+      image: "lib/projects/fishybits2/fishybits1.png",
+      companyImage: "lib/projects/fishybits2/PlaySideCover.png",
+      sort: ProjectsSort.professional,
+      navigation: FishyBits(),
+    ),
     ProjectsItem(
       "AnatoMe",
       DateTime(2021, 12, 11),
@@ -233,7 +251,6 @@ class ProjectsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool hoverOver = false;
-
     precacheImage(AssetImage(image), context);
     precacheImage(AssetImage(companyImage), context);
     return OnHover(builder: (isHovered) {

@@ -20,8 +20,7 @@ class ImagePopup {
             Padding(
               padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
               // ignore: deprecated_member_use
-              child: new RaisedButton(
-                  padding: EdgeInsets.all(20),
+              child: new ElevatedButton(
                   child: new Text(
                     "CLOSE",
                     style: new TextStyle(

@@ -31,7 +31,9 @@ class _ProjectsListState extends State<ProjectsList> {
     for (var i = 0; i < ProjectsSort.values.length; i++) {
       if (!sortActive.containsKey(ProjectsSort.values[i])) {
         if (ProjectsSort.values[i] == ProjectsSort.gamejam ||
-            ProjectsSort.values[i] == ProjectsSort.university) {
+            ProjectsSort.values[i] == ProjectsSort.university ||
+            ProjectsSort.values[i] == ProjectsSort.personal
+            ) {
           sortActive[ProjectsSort.values[i]] = false;
         } else {
           sortActive[ProjectsSort.values[i]] = true;

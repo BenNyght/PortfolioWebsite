@@ -80,7 +80,7 @@ class _HomeViewState extends State<HomeView> {
                                 ),
                               ),
                               Text(
-                                "Game Designer & Programmer",
+                                "Game Developer / Software Engineer",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 25,
