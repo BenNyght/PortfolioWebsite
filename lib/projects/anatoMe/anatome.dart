@@ -5,7 +5,6 @@ import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
 import 'package:benjamin_portfolio/widgets/project_content.dart';
 import 'package:benjamin_portfolio/widgets/youtube_video.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class AnatoMe extends StatefulWidget {
   @override
@@ -13,10 +12,6 @@ class AnatoMe extends StatefulWidget {
 }
 
 class _AnatoMeState extends State<AnatoMe> {
-  void _launchURL(String _url) async => await canLaunch(_url)
-      ? await launch(_url)
-      : throw 'Could not launch $_url';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

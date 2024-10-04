@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class HeadingOne extends StatefulWidget {
-  String text;
+  final String text;
   HeadingOne(this.text);
 
   @override

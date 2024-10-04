@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
-// ignore: must_be_immutable
 class DownloadButton extends StatefulWidget {
-  String downloadLink;
-  DownloadButton({@required this.downloadLink});
+  final String downloadLink;
+  DownloadButton({required this.downloadLink});
 
   @override
   _DownloadButtonState createState() => _DownloadButtonState();
 }
 
 class _DownloadButtonState extends State<DownloadButton> {
-  void _launchURL(String _url) async => await canLaunch(_url)
-      ? await launch(_url)
+  void _launchURL(String _url) async => await canLaunchUrlString(_url)
+      ? await launchUrlString(_url)
       : throw 'Could not launch $_url';
 
   @override

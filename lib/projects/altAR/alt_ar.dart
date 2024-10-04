@@ -7,7 +7,7 @@ import 'package:benjamin_portfolio/widgets/project_content.dart';
 import 'package:benjamin_portfolio/widgets/youtube_video.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class AltAR extends StatefulWidget {
   @override
@@ -15,8 +15,8 @@ class AltAR extends StatefulWidget {
 }
 
 class _AltARState extends State<AltAR> {
-  void _launchURL(String _url) async => await canLaunch(_url)
-      ? await launch(_url)
+  void _launchURL(String _url) async => await canLaunchUrlString(_url)
+      ? await launchUrlString(_url)
       : throw 'Could not launch $_url';
 
   @override

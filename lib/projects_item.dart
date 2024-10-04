@@ -2,6 +2,7 @@ import 'package:benjamin_portfolio/projects/3dAudio/3d_audio.dart';
 import 'package:benjamin_portfolio/projects/adaptiveLevelGeneration/adaptive_level_generation.dart';
 import 'package:benjamin_portfolio/projects/altAR/alt_ar.dart';
 import 'package:benjamin_portfolio/projects/apocalypseNow/apocalypse_now.dart';
+import 'package:benjamin_portfolio/projects/arDragon/ardragon.dart';
 import 'package:benjamin_portfolio/projects/archegnomeies/archegnomeies.dart';
 import 'package:benjamin_portfolio/projects/battleDonut/battle_donut.dart';
 import 'package:benjamin_portfolio/projects/birdsOnShow/birds_on_show.dart';
@@ -34,6 +35,14 @@ List<ProjectsItem> projectsList() {
       navigation: ShibaEternity(),
     ),
     ProjectsItem(
+      "AR Dragon",
+      DateTime(2022, 8, 19),
+      image: "lib/projects/arDragon/ardragon-logo.jpg",
+      companyImage: "lib/projects/fishybits2/PlaySideCover.png",
+      sort: ProjectsSort.professional,
+      navigation: ArDragon(),
+    ),
+    ProjectsItem(
       "Fishy Bits 2",
       DateTime(2022, 5, 15),
       image: "lib/projects/fishybits2/fishybits1.png",
@@ -63,7 +72,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/adaptiveLevelGeneration/adaptivelevel.png",
       companyImage:
           "lib/projects/adaptiveLevelGeneration/ImmortalityInteractiveCover.png",
-      sort: ProjectsSort.personal,
+      sort: ProjectsSort.professional,
       navigation: AdaptiveLevelGeneration(),
     ),
     ProjectsItem(
@@ -231,11 +240,11 @@ enum ProjectsSort {
 class ProjectsItem extends StatelessWidget {
   final String title;
   final DateTime dateCompleted;
-  final DateTime dateStarted;
-  final String image;
-  final String companyImage;
-  final ProjectsSort sort;
-  final Widget navigation;
+  final DateTime? dateStarted;
+  final String? image;
+  final String? companyImage;
+  final ProjectsSort? sort;
+  final Widget? navigation;
   ProjectsItem(
     this.title,
     this.dateCompleted, {
@@ -250,23 +259,21 @@ class ProjectsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool hoverOver = false;
-    precacheImage(AssetImage(image), context);
-    precacheImage(AssetImage(companyImage), context);
+    precacheImage(AssetImage(image!), context);
+    precacheImage(AssetImage(companyImage!), context);
     return OnHover(builder: (isHovered) {
       final color = isHovered
-          ? Colors.blueGrey[100].withOpacity(0)
-          : Colors.blueGrey[100].withOpacity(0.2);
+          ? Colors.blueGrey[100]?.withOpacity(0)
+          : Colors.blueGrey[100]?.withOpacity(0.2);
       return PhysicalModel(
         color: Colors.transparent,
-        elevation: hoverOver ? 16 : 0,
         child: GestureDetector(
           onTap: () {
             if (navigation != null) {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => navigation,
+                    builder: (context) => navigation!,
                   ));
             }
           },
@@ -289,7 +296,7 @@ class ProjectsItem extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: Colors.white,
                           image: DecorationImage(
-                            image: AssetImage(image),
+                            image: AssetImage(image!),
                             fit: BoxFit.cover,
                             alignment: Alignment.center,
                           ),
@@ -301,7 +308,7 @@ class ProjectsItem extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: Colors.transparent,
                             image: DecorationImage(
-                              image: AssetImage(companyImage),
+                              image: AssetImage(companyImage!),
                               fit: BoxFit.fitWidth,
                               alignment: Alignment.bottomCenter,
                             ),
@@ -313,7 +320,7 @@ class ProjectsItem extends StatelessWidget {
                 ),
                 ListTile(
                   contentPadding: const EdgeInsets.all(10),
-                  leading: projectsItemIcon(sort),
+                  leading: projectsItemIcon(sort!),
                   title: Text(
                     title,
                     overflow: TextOverflow.fade,

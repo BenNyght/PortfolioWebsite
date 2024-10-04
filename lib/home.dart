@@ -1,10 +1,10 @@
 import 'package:benjamin_portfolio/widgets/fade_in_two.dart';
 import 'package:benjamin_portfolio/projects.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class HomeView extends StatefulWidget {
-  HomeView({Key key}) : super(key: key);
+  HomeView({Key? key}) : super(key: key);
 
   @override
   _HomeViewState createState() => _HomeViewState();
@@ -13,8 +13,8 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   int timelineIndex = 0;
 
-  void _launchURL(String _url) async => await canLaunch(_url)
-      ? await launch(_url)
+  void _launchURL(String _url) async => await canLaunchUrlString(_url)
+      ? await launchUrlString(_url)
       : throw 'Could not launch $_url';
 
   @override
@@ -111,7 +111,7 @@ class _HomeViewState extends State<HomeView> {
                                   ElevatedButton.icon(
                                     onPressed: () {
                                       _launchURL(
-                                          "https://drive.google.com/file/d/1-h-nFam9BsLPcK_9K-0f94m1_z6ZxByW/view?usp=sharing");
+                                          "https://drive.google.com/file/d/15aXZSbEgxLWnYhSjiCQtATbNkoBf5Yjn/view?usp=sharing");
                                     },
                                     icon: Icon(Icons.picture_as_pdf),
                                     label: Text("Resume"),
@@ -128,11 +128,6 @@ class _HomeViewState extends State<HomeView> {
                                 },
                                 icon: Icon(Icons.link),
                                 label: Text("LinkedIn"),
-                                // style: ButtonStyle(
-                                //   backgroundColor:
-                                //       MaterialStateProperty.all<Color>(
-                                //           Color(0xFF232323)),
-                                // ),
                               ),
                             ],
                           ),
@@ -143,15 +138,6 @@ class _HomeViewState extends State<HomeView> {
                 ),
               ),
             ),
-            // SliverList(
-            //   delegate: SliverChildListDelegate(
-            //     [
-            //       ProjectsList(),
-            //       Container(height: 50),
-            //       Footer(),
-            //     ],
-            //   ),
-            // ),
           ],
         ),
       ),

@@ -3,7 +3,7 @@ import 'package:benjamin_portfolio/projects_item.dart';
 import 'package:flutter/material.dart';
 
 class ProjectsList extends StatefulWidget {
-  ProjectsList({Key key}) : super(key: key);
+  ProjectsList({Key? key}) : super(key: key);
 
   @override
   _ProjectsListState createState() => _ProjectsListState();
@@ -28,6 +28,7 @@ class _ProjectsListState extends State<ProjectsList> {
       _crossAxisCount = 1;
     }
 
+    // Show professional and personal projects by default
     for (var i = 0; i < ProjectsSort.values.length; i++) {
       if (!sortActive.containsKey(ProjectsSort.values[i])) {
         if (ProjectsSort.values[i] == ProjectsSort.gamejam ||
@@ -41,10 +42,9 @@ class _ProjectsListState extends State<ProjectsList> {
       }
     }
 
-    // ignore: deprecated_member_use
-    List<ProjectsItem> sortedProjects = new List<ProjectsItem>();
+    List<ProjectsItem> sortedProjects = [];
     for (var i = 0; i < projectsList().length; i++) {
-      if (sortActive[projectsList()[i].sort]) {
+      if (sortActive[projectsList()[i].sort] ?? false) {
         sortedProjects.add(projectsList()[i]);
       }
     }
@@ -56,6 +56,7 @@ class _ProjectsListState extends State<ProjectsList> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          /* - Disabled project type selection
           Container(
             margin: EdgeInsets.all(15),
             child: Center(
@@ -69,7 +70,7 @@ class _ProjectsListState extends State<ProjectsList> {
                         ProjectsSort.values[index].toString().split('.').last;
 
                     return ChoiceChip(
-                      avatar: sortActive[ProjectsSort.values[index]]
+                      avatar: sortActive[ProjectsSort.values[index]] ?? false
                           ? Icon(Icons.done)
                           : null,
                       label: Padding(
@@ -78,14 +79,13 @@ class _ProjectsListState extends State<ProjectsList> {
                             "${sortType[0].toUpperCase()}${sortType.substring(1)}",
                             style: TextStyle(fontSize: 20)),
                       ),
-                      selected: sortActive[ProjectsSort.values[index]],
+                      selected: sortActive[ProjectsSort.values[index]] ?? false,
                       backgroundColor: Colors.grey[200],
                       selectedColor: Colors.grey[300],
                       labelStyle: TextStyle(color: Color(0xFF232323)),
                       onSelected: (bool selected) {
                         setState(() {
-                          sortActive[ProjectsSort.values[index]] =
-                              !sortActive[ProjectsSort.values[index]];
+                          sortActive[ProjectsSort.values[index]] = !(sortActive[ProjectsSort.values[index]] ?? false);
                         });
                       },
                     );
@@ -94,6 +94,7 @@ class _ProjectsListState extends State<ProjectsList> {
               ),
             ),
           ),
+          */
           GridView.builder(
             shrinkWrap: true,
             physics: ClampingScrollPhysics(),

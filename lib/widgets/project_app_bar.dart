@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class ProjectAppBar extends StatefulWidget {
-  String title;
+  final String title;
 
-  ProjectAppBar({@required this.title});
+  ProjectAppBar({required this.title});
 
   @override
   _ProjectAppBarState createState() => _ProjectAppBarState();

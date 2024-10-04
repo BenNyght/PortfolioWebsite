@@ -6,7 +6,6 @@ import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
 import 'package:benjamin_portfolio/widgets/project_content.dart';
 import 'package:benjamin_portfolio/widgets/website_button.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class EasyTabletop extends StatefulWidget {
   @override

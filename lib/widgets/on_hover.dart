@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class OnHover extends StatefulWidget {
   final Widget Function(bool isHovered) builder;
-  const OnHover({this.builder});
+  const OnHover({required this.builder});
   @override
   _OnHoverState createState() => _OnHoverState();
 }

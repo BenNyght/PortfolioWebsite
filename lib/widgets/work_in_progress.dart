@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class WorkInProgress extends StatefulWidget {
-  WorkInProgress({Key key}) : super(key: key);
+  WorkInProgress({required Key key}) : super(key: key);
 
   @override
   _WorkInProgressState createState() => _WorkInProgressState();

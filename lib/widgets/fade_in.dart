@@ -9,27 +9,23 @@ class FadeIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: deprecated_member_use
-    final tween = MultiTrackTween([
-      // ignore: deprecated_member_use
-      Track("opacity")
-          .add(Duration(milliseconds: 500), Tween(begin: 0.0, end: 1.0)),
-      // ignore: deprecated_member_use
-      Track("translateX").add(
-          Duration(milliseconds: 500), Tween(begin: 130.0, end: 0.0),
-          curve: Curves.easeOut)
-    ]);
+    final tween = MovieTween()
+      ..scene(begin: Duration.zero, end: Duration(milliseconds: 500))
+          .tween("opacity", Tween(begin: 0.0, end: 1.0))
+      ..scene(begin: Duration.zero, end: Duration(milliseconds: 500), curve: Curves.easeOut)
+          .tween("translateX", Tween(begin: 130.0, end: 0.0));
 
-    // ignore: deprecated_member_use
-    return ControlledAnimation(
+    return PlayAnimationBuilder<Movie>(
       delay: Duration(milliseconds: (300 * delay).round()),
       duration: tween.duration,
       tween: tween,
       child: child,
-      builderWithChild: (context, child, animation) => Opacity(
-        opacity: animation["opacity"],
+      builder: (context, animation, child) => Opacity(
+        opacity: animation.get("opacity"),
         child: Transform.translate(
-            offset: Offset(animation["translateX"], 0), child: child),
+          offset: Offset(animation.get("translateX"), 0),
+          child: child,
+        ),
       ),
     );
   }

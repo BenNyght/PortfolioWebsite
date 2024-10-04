@@ -2,7 +2,7 @@ import 'package:benjamin_portfolio/projects_list.dart';
 import 'package:flutter/material.dart';
 
 class Projects extends StatefulWidget {
-  Projects({Key key}) : super(key: key);
+  Projects({Key? key}) : super(key: key);
 
   @override
   _ProjectsState createState() => _ProjectsState();
@@ -11,8 +11,6 @@ class Projects extends StatefulWidget {
 class _ProjectsState extends State<Projects> {
   @override
   void initState() {
-    // adjust the provider based on the image type
-    //precacheImage(new AssetImage("assets/general/background.jpg"), context);
     super.initState();
   }
 

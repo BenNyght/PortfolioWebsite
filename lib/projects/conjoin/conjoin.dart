@@ -5,7 +5,6 @@ import 'package:benjamin_portfolio/widgets/image_library.dart';
 import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
 import 'package:benjamin_portfolio/widgets/project_content.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class Conjoin extends StatefulWidget {
   @override
@@ -13,10 +12,6 @@ class Conjoin extends StatefulWidget {
 }
 
 class _ConjoinState extends State<Conjoin> {
-  void _launchURL(String _url) async => await canLaunch(_url)
-      ? await launch(_url)
-      : throw 'Could not launch $_url';
-
   @override
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;

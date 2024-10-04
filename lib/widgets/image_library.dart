@@ -3,10 +3,9 @@ import 'package:benjamin_portfolio/widgets/image_popup.dart';
 import 'package:benjamin_portfolio/widgets/on_hover.dart';
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class ImageLibrary extends StatefulWidget {
-  List<String> images;
-  ImageLibrary({@required this.images});
+  final List<String> images;
+  ImageLibrary({required this.images});
 
   @override
   _ImageLibraryState createState() => _ImageLibraryState();

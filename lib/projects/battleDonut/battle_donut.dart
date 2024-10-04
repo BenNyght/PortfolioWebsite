@@ -1,6 +1,5 @@
 import 'package:benjamin_portfolio/widgets/download_button.dart';
 import 'package:benjamin_portfolio/widgets/heading_0.dart';
-import 'package:benjamin_portfolio/widgets/heading_0_rich.dart';
 import 'package:benjamin_portfolio/widgets/heading_1.dart';
 import 'package:benjamin_portfolio/widgets/image_library.dart';
 import 'package:benjamin_portfolio/widgets/project_app_bar.dart';

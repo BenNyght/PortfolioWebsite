@@ -1,15 +1,11 @@
-import 'package:benjamin_portfolio/widgets/download_button.dart';
+import 'package:benjamin_portfolio/widgets/app_store_button.dart';
+import 'package:benjamin_portfolio/widgets/google_play_button.dart';
 import 'package:benjamin_portfolio/widgets/heading_0.dart';
 import 'package:benjamin_portfolio/widgets/heading_1.dart';
-import 'package:benjamin_portfolio/widgets/heading_2.dart';
 import 'package:benjamin_portfolio/widgets/image_library.dart';
 import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
 import 'package:benjamin_portfolio/widgets/project_content.dart';
 import 'package:flutter/material.dart';
-
-import '../../widgets/app_store_button.dart';
-import '../../widgets/google_play_button.dart';
-
 class FishyBits extends StatefulWidget {
   @override
   _FishyBitsState createState() => _FishyBitsState();

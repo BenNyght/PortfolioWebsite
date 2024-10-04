@@ -1,20 +1,19 @@
 import 'package:benjamin_portfolio/widgets/fade_in_two.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
-// ignore: must_be_immutable
 class GooglePlayButton extends StatefulWidget {
-  String link;
+  final String link;
 
-  GooglePlayButton({@required this.link});
+  GooglePlayButton({required this.link});
 
   @override
   _GooglePlayButtonState createState() => _GooglePlayButtonState();
 }
 
 class _GooglePlayButtonState extends State<GooglePlayButton> {
-  void _launchURL(String _url) async => await canLaunch(_url)
-      ? await launch(_url)
+  void _launchURL(String _url) async => await canLaunchUrlString(_url)
+      ? await launchUrlString(_url)
       : throw 'Could not launch $_url';
 
   @override

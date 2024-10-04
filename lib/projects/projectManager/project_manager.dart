@@ -5,7 +5,7 @@ import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
 import 'package:benjamin_portfolio/widgets/project_content.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ProjectManager extends StatefulWidget {
   @override
@@ -13,8 +13,8 @@ class ProjectManager extends StatefulWidget {
 }
 
 class _ProjectManagerState extends State<ProjectManager> {
-  void _launchURL(String _url) async => await canLaunch(_url)
-      ? await launch(_url)
+  void _launchURL(String _url) async => await canLaunchUrlString(_url)
+      ? await launchUrlString(_url)
       : throw 'Could not launch $_url';
 
   @override

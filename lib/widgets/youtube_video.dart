@@ -3,31 +3,41 @@ import 'package:benjamin_portfolio/widgets/heading_2.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
-// ignore: must_be_immutable
 class YoutubeVideo extends StatefulWidget {
-  String title;
-  String youtubeVideoId;
+  final String title;
+  final String youtubeVideoId;
 
-  YoutubeVideo({@required this.title, @required this.youtubeVideoId});
+  YoutubeVideo({required this.title, required this.youtubeVideoId});
 
   @override
   _YoutubeVideoState createState() => _YoutubeVideoState();
 }
 
 class _YoutubeVideoState extends State<YoutubeVideo> {
-  @override
-  Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
+  late YoutubePlayerController _youtubeController;
 
-    YoutubePlayerController _youtubeController = YoutubePlayerController(
-      initialVideoId: widget.youtubeVideoId,
+  @override
+  void initState() {
+    super.initState();
+    _youtubeController = YoutubePlayerController.fromVideoId(
+      videoId: widget.youtubeVideoId,
+      autoPlay: false,
       params: YoutubePlayerParams(
-        playlist: [widget.youtubeVideoId], // Defining custom playlist
-        startAt: Duration(seconds: 0),
         showControls: true,
         showFullscreenButton: true,
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _youtubeController.close();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    double _screenWidth = MediaQuery.of(context).size.width;
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -42,7 +52,7 @@ class _YoutubeVideoState extends State<YoutubeVideo> {
                 elevation: 15,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: YoutubePlayerIFrame(
+                  child: YoutubePlayer(
                     controller: _youtubeController,
                     aspectRatio: 16 / 9,
                   ),

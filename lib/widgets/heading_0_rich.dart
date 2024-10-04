@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class HeadingZeroRich extends StatefulWidget {
-  List<InlineSpan> textChildren;
+  final List<InlineSpan> textChildren;
   HeadingZeroRich(this.textChildren);
 
   @override

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class ProjectContent extends StatefulWidget {
-  List<Widget> children;
+  final List<Widget> children;
 
-  ProjectContent({@required this.children});
+  ProjectContent({required this.children});
 
   @override
   _ProjectContentState createState() => _ProjectContentState();
