@@ -1,5 +1,12 @@
 {
   "projects": {
     "default": "benjaminfinlayportfolio"
+  },
+  "targets": {
+    "your-project-id": {
+      "hosting": {
+        "your-target-name": ["benjaminfinlayportfolio"]
+      }
+    }
   }
 }
