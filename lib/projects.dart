@@ -1,50 +1,38 @@
-import 'package:benjamin_portfolio/projects_list.dart';
+import 'package:benjamin_portfolio/home.dart';
 import 'package:flutter/material.dart';
+import 'package:benjamin_portfolio/projects_list.dart';
 
-class Projects extends StatefulWidget {
-  Projects({Key? key}) : super(key: key);
-
-  @override
-  _ProjectsState createState() => _ProjectsState();
-}
-
-class _ProjectsState extends State<Projects> {
-  @override
-  void initState() {
-    super.initState();
-  }
+class Projects extends StatelessWidget {
+  const Projects({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final media = MediaQuery.of(context);
+    final screenWidth = media.size.width;
+    final scale = screenWidth / 1200.0;
+    final spacing = 16.0 * scale.clamp(0.8, 1.2);
+
     return Scaffold(
+      backgroundColor: AppColors.background,
       body: SafeArea(
-        bottom: true,
-        top: true,
-        left: true,
-        right: true,
         child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
-              title: Text("Projects"),
-              backgroundColor: Color(0xFF232323),
-              expandedHeight: 60,
-              snap: false,
-              pinned: false,
-              floating: false,
-              flexibleSpace: FlexibleSpaceBar(
-                centerTitle: false,
-                collapseMode: CollapseMode.parallax,
-                background: Image.asset(
-                  "assets/general/background.jpg",
-                  fit: BoxFit.cover,
-                ),
+              pinned: true,
+              backgroundColor: AppColors.background,
+              iconTheme: const IconThemeData(color: AppColors.primary), // Fixes back button color
+              title: Text(
+                'Projects',
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      color: AppColors.primary,
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
             ),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  ProjectsList(),
-                ],
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.all(spacing),
+                child: const ProjectsList(), // Let this be fully responsive
               ),
             ),
           ],

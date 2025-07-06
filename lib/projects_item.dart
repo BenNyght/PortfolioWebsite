@@ -27,48 +27,40 @@ import 'package:intl/intl.dart';
 List<ProjectsItem> projectsList() {
   return [
     ProjectsItem(
-      "Shiba Eternity",
-      DateTime(2022, 10, 19),
+      title: "Shiba Eternity",
+      dateCompleted: DateTime(2022, 10, 19),
       image: "lib/projects/shibaeternity/Shiba_Eternity_Logo.png",
       companyImage: "lib/projects/fishybits2/PlaySideCover.png",
       sort: ProjectsSort.professional,
       navigation: ShibaEternity(),
     ),
     ProjectsItem(
-      "AR Dragon",
-      DateTime(2022, 8, 19),
+      title: "AR Dragon",
+      dateCompleted: DateTime(2022, 8, 19),
       image: "lib/projects/arDragon/ardragon-logo.jpg",
       companyImage: "lib/projects/fishybits2/PlaySideCover.png",
       sort: ProjectsSort.professional,
       navigation: ArDragon(),
     ),
     ProjectsItem(
-      "Fishy Bits 2",
-      DateTime(2022, 5, 15),
+      title: "Fishy Bits 2",
+      dateCompleted: DateTime(2022, 5, 15),
       image: "lib/projects/fishybits2/fishybits1.png",
       companyImage: "lib/projects/fishybits2/PlaySideCover.png",
       sort: ProjectsSort.professional,
       navigation: FishyBits(),
     ),
     ProjectsItem(
-      "AnatoMe",
-      DateTime(2021, 12, 11),
+      title: "AnatoMe",
+      dateCompleted: DateTime(2021, 12, 11),
       image: "lib/projects/anatoMe/AnatoMe.png",
       companyImage: "lib/projects/anatoMe/SpinDriftCover.png",
       sort: ProjectsSort.professional,
       navigation: AnatoMe(),
     ),
     ProjectsItem(
-      "Portfolio",
-      DateTime(2019, 1, 1),
-      image: "lib/projects/portfolio/background.jpg",
-      companyImage: "lib/projects/portfolio/PersonalCover.png",
-      sort: ProjectsSort.personal,
-      navigation: Portfolio(),
-    ),
-    ProjectsItem(
-      "Adaptive Level Generation",
-      DateTime(2021, 11, 1),
+      title: "Adaptive Level Generation",
+      dateCompleted: DateTime(2021, 11, 1),
       image: "lib/projects/adaptiveLevelGeneration/adaptivelevel.png",
       companyImage:
           "lib/projects/adaptiveLevelGeneration/ImmortalityInteractiveCover.png",
@@ -76,60 +68,48 @@ List<ProjectsItem> projectsList() {
       navigation: AdaptiveLevelGeneration(),
     ),
     ProjectsItem(
-      "Alt-AR",
-      DateTime(2021, 1, 28),
+      title: "Paper Sorting Simulation",
+      dateCompleted: DateTime(2021, 7, 15),
+      image: "lib/projects/papersimulation/2.jpg",
+      companyImage: "lib/projects/papersimulation/EndeavourFoundationCover.png",
+      sort: ProjectsSort.professional,
+      navigation: PaperSimulation(),
+    ),
+    ProjectsItem(
+      title: "Alt-AR",
+      dateCompleted: DateTime(2021, 1, 28),
       image: "lib/projects/altAR/altAR.jpg",
       companyImage: "lib/projects/altAR/AnywhereFestivalCover.png",
       sort: ProjectsSort.professional,
       navigation: AltAR(),
     ),
     ProjectsItem(
-      "VR Movement Tracking",
-      DateTime(2020, 2, 29),
-      image: "lib/projects/vrTreadmill/Screenshot_5.png",
-      companyImage: "lib/projects/vrTreadmill/EngageLabCover.png",
+      title: "Project Manager",
+      dateCompleted: DateTime(2020, 12, 23),
+      image: "lib/projects/projectManager/cidselDatabase.jpg",
+      companyImage: "lib/projects/projectManager/USCCidselCover.png",
       sort: ProjectsSort.professional,
-      navigation: VRTreadmill(),
+      navigation: ProjectManager(),
     ),
     ProjectsItem(
-      "Apocalypse Now? (48hr Sunjam 2019)",
-      DateTime(2019, 7, 12),
-      dateStarted: DateTime(2019, 7, 15),
-      image: "lib/projects/apocalypseNow/apocalypseNow.jpg",
-      companyImage: "lib/projects/timeJump/SunjamCover.png",
-      sort: ProjectsSort.gamejam,
-      navigation: ApocalypseNow(),
+      title: "Hometown Buddy (Gympie Region)",
+      dateCompleted: DateTime(2020, 12, 18),
+      image: "lib/projects/gympieSupport/gympieSupport.jpg",
+      companyImage: "lib/projects/gympieSupport/CommunityActionCover.png",
+      sort: ProjectsSort.professional,
+      navigation: GympieSupport(),
     ),
     ProjectsItem(
-      "Time Jump (48hr Sunjam 2018)",
-      DateTime(2018, 7, 12),
-      dateStarted: DateTime(2018, 7, 15),
-      image: "lib/projects/timeJump/timeJump.png",
-      companyImage: "lib/projects/timeJump/SunjamCover.png",
-      sort: ProjectsSort.gamejam,
-      navigation: TimeJump(),
+      title: "Conjoin",
+      dateCompleted: DateTime(2020, 10, 18),
+      image: "lib/projects/conjoin/conjoin.jpg",
+      companyImage: "lib/projects/conjoin/PersonalCover.png",
+      sort: ProjectsSort.personal,
+      navigation: Conjoin(),
     ),
     ProjectsItem(
-      "Flick (48hr Global Game Jam 2019)",
-      DateTime(2019, 1, 31),
-      dateStarted: DateTime(2019, 1, 27),
-      image: "lib/projects/flick/flick.jpg",
-      companyImage: "lib/projects/flick/GlobalGameJamCover.png",
-      sort: ProjectsSort.gamejam,
-      navigation: Flick(),
-    ),
-    ProjectsItem(
-      "Run Pharaoh Run!",
-      DateTime(2020, 1, 31),
-      dateStarted: DateTime(2020, 1, 27),
-      image: "lib/projects/runPharaohRun/runPharaohRun.jpg",
-      companyImage: "lib/projects/runPharaohRun/GlobalGameJamCover.png",
-      sort: ProjectsSort.gamejam,
-      navigation: RunPharaohRun(),
-    ),
-    ProjectsItem(
-      "Nyght's 3D Audio",
-      DateTime(2020, 8, 10),
+      title: "Nyght's 3D Audio",
+      dateCompleted: DateTime(2020, 8, 10),
       dateStarted: DateTime(2020, 8, 16),
       image: "lib/projects/3dAudio/audiologo.png",
       companyImage: "lib/projects/3dAudio/AudioJamCover.png",
@@ -137,33 +117,41 @@ List<ProjectsItem> projectsList() {
       navigation: ThreeDAudio(),
     ),
     ProjectsItem(
-      "Easy Tabletop Tools",
-      DateTime(2020, 3, 1),
+      title: "Easy Tabletop Tools",
+      dateCompleted: DateTime(2020, 3, 1),
       image: "lib/projects/dndMapViewer/d&dViewerLogo.png",
       companyImage: "lib/projects/dndMapViewer/PersonalCover.png",
       sort: ProjectsSort.personal,
       navigation: EasyTabletop(),
     ),
     ProjectsItem(
-      "CityFight (Digital Re-imagining)",
-      DateTime(2019, 11, 13),
+      title: "VR Movement Tracking",
+      dateCompleted: DateTime(2020, 2, 29),
+      image: "lib/projects/vrTreadmill/Screenshot_5.png",
+      companyImage: "lib/projects/vrTreadmill/EngageLabCover.png",
+      sort: ProjectsSort.professional,
+      navigation: VRTreadmill(),
+    ),
+    ProjectsItem(
+      title: "Run Pharaoh Run!",
+      dateCompleted: DateTime(2020, 1, 31),
+      dateStarted: DateTime(2020, 1, 27),
+      image: "lib/projects/runPharaohRun/runPharaohRun.jpg",
+      companyImage: "lib/projects/runPharaohRun/GlobalGameJamCover.png",
+      sort: ProjectsSort.gamejam,
+      navigation: RunPharaohRun(),
+    ),
+    ProjectsItem(
+      title: "CityFight (Digital Re-imagining)",
+      dateCompleted: DateTime(2019, 11, 13),
       image: "lib/projects/cityFight/cityFightLogo.png",
       companyImage: "lib/projects/cityFight/ArmyCover.png",
       sort: ProjectsSort.professional,
       navigation: CityFight(),
     ),
     ProjectsItem(
-      "BirdsOnShow AR App",
-      DateTime(2019, 9, 16),
-      dateStarted: DateTime(2019, 8, 16),
-      image: "lib/projects/birdsOnShow/birds.jpg",
-      companyImage: "lib/projects/birdsOnShow/MaryCairncrossCover.png",
-      sort: ProjectsSort.professional,
-      navigation: BirdsOnShow(),
-    ),
-    ProjectsItem(
-      "Battle Donut",
-      DateTime(2019, 10, 20),
+      title: "Battle Donut",
+      dateCompleted: DateTime(2019, 10, 20),
       dateStarted: DateTime(2019, 10, 1),
       image: "lib/projects/battleDonut/battleDonut.png",
       companyImage: "lib/projects/battleDonut/SeriousGamesCover.png",
@@ -171,8 +159,26 @@ List<ProjectsItem> projectsList() {
       navigation: BattleDonut(),
     ),
     ProjectsItem(
-      "Arch E-Gnome-ies",
-      DateTime(2019, 4, 12),
+      title: "BirdsOnShow AR App",
+      dateCompleted: DateTime(2019, 9, 16),
+      dateStarted: DateTime(2019, 8, 16),
+      image: "lib/projects/birdsOnShow/birds.jpg",
+      companyImage: "lib/projects/birdsOnShow/MaryCairncrossCover.png",
+      sort: ProjectsSort.professional,
+      navigation: BirdsOnShow(),
+    ),
+    ProjectsItem(
+      title: "Apocalypse Now? (48hr Sunjam 2019)",
+      dateCompleted: DateTime(2019, 7, 12),
+      dateStarted: DateTime(2019, 7, 15),
+      image: "lib/projects/apocalypseNow/apocalypseNow.jpg",
+      companyImage: "lib/projects/timeJump/SunjamCover.png",
+      sort: ProjectsSort.gamejam,
+      navigation: ApocalypseNow(),
+    ),
+    ProjectsItem(
+      title: "Arch E-Gnome-ies",
+      dateCompleted: DateTime(2019, 4, 12),
       dateStarted: DateTime(2019, 4, 1),
       image: "lib/projects/archegnomeies/archegnomeies.png",
       companyImage: "lib/projects/archegnomeies/SeriousGamesCover.png",
@@ -180,139 +186,127 @@ List<ProjectsItem> projectsList() {
       navigation: Archegnomeies(),
     ),
     ProjectsItem(
-      "Conjoin",
-      DateTime(2020, 10, 18),
-      image: "lib/projects/conjoin/conjoin.jpg",
-      companyImage: "lib/projects/conjoin/PersonalCover.png",
+      title: "Flick (48hr Global Game Jam 2019)",
+      dateCompleted: DateTime(2019, 1, 31),
+      dateStarted: DateTime(2019, 1, 27),
+      image: "lib/projects/flick/flick.jpg",
+      companyImage: "lib/projects/flick/GlobalGameJamCover.png",
+      sort: ProjectsSort.gamejam,
+      navigation: Flick(),
+    ),
+    ProjectsItem(
+      title: "Portfolio",
+      dateCompleted: DateTime(2019, 1, 1),
+      image: "lib/projects/portfolio/background.jpg",
+      companyImage: "lib/projects/portfolio/PersonalCover.png",
       sort: ProjectsSort.personal,
-      navigation: Conjoin(),
+      navigation: Portfolio(),
     ),
     ProjectsItem(
-      "Project Manager",
-      DateTime(2020, 12, 23),
-      image: "lib/projects/projectManager/cidselDatabase.jpg",
-      companyImage: "lib/projects/projectManager/USCCidselCover.png",
-      sort: ProjectsSort.professional,
-      navigation: ProjectManager(),
-    ),
-    ProjectsItem(
-      "Hometown Buddy (Gympie Region)",
-      DateTime(2020, 12, 18),
-      image: "lib/projects/gympieSupport/gympieSupport.jpg",
-      companyImage: "lib/projects/gympieSupport/CommunityActionCover.png",
-      sort: ProjectsSort.professional,
-      navigation: GympieSupport(),
-    ),
-    ProjectsItem(
-      "Paper Sorting Simulation",
-      DateTime(2021, 7, 15),
-      image: "lib/projects/papersimulation/2.jpg",
-      companyImage: "lib/projects/papersimulation/EndeavourFoundationCover.png",
-      sort: ProjectsSort.professional,
-      navigation: PaperSimulation(),
+      title: "Time Jump (48hr Sunjam 2018)",
+      dateCompleted: DateTime(2018, 7, 12),
+      dateStarted: DateTime(2018, 7, 15),
+      image: "lib/projects/timeJump/timeJump.png",
+      companyImage: "lib/projects/timeJump/SunjamCover.png",
+      sort: ProjectsSort.gamejam,
+      navigation: TimeJump(),
     ),
   ];
 }
 
-Icon projectsItemIcon(ProjectsSort sortType) {
-  switch (sortType) {
-    case ProjectsSort.gamejam:
-      return Icon(Icons.speed);
-    case ProjectsSort.university:
-      return Icon(Icons.school);
-    case ProjectsSort.professional:
-      return Icon(Icons.work);
-    case ProjectsSort.personal:
-      return Icon(Icons.person);
-    default:
-      return Icon(Icons.star);
+enum ProjectsSort { 
+  professional, 
+  personal, 
+  university, 
+  gamejam 
+}
+
+extension ProjectsSortIcon on ProjectsSort {
+  Icon get icon {
+    switch (this) {
+      case ProjectsSort.gamejam:
+        return const Icon(Icons.speed);
+      case ProjectsSort.university:
+        return const Icon(Icons.school);
+      case ProjectsSort.professional:
+        return const Icon(Icons.work);
+      case ProjectsSort.personal:
+        return const Icon(Icons.person);
+    }
   }
 }
 
-enum ProjectsSort {
-  professional,
-  personal,
-  university,
-  gamejam,
-}
-
-// ignore: must_be_immutable
 class ProjectsItem extends StatelessWidget {
   final String title;
   final DateTime dateCompleted;
   final DateTime? dateStarted;
-  final String? image;
-  final String? companyImage;
-  final ProjectsSort? sort;
-  final Widget? navigation;
-  ProjectsItem(
-    this.title,
-    this.dateCompleted, {
-    this.dateStarted,
-    this.image,
-    this.companyImage,
-    this.sort,
-    this.navigation,
-  });
+  final String image;
+  final String companyImage;
+  final ProjectsSort sort;
+  final Widget navigation;
 
-  var dateFormat = DateFormat("dd-MM-yyyy");
+  const ProjectsItem({
+    required this.title,
+    required this.dateCompleted,
+    this.dateStarted,
+    required this.image,
+    required this.companyImage,
+    required this.sort,
+    required this.navigation,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    precacheImage(AssetImage(image!), context);
-    precacheImage(AssetImage(companyImage!), context);
-    return OnHover(builder: (isHovered) {
-      final color = isHovered
-          ? Colors.blueGrey[100]?.withOpacity(0)
-          : Colors.blueGrey[100]?.withOpacity(0.2);
-      return PhysicalModel(
-        color: Colors.transparent,
-        child: GestureDetector(
-          onTap: () {
-            if (navigation != null) {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => navigation!,
-                  ));
-            }
-          },
-          child: Card(
-            elevation: 8,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(0),
-                  topRight: Radius.circular(0),
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15)),
+    // Preload images for smooth transitions
+    precacheImage(AssetImage(image), context);
+    precacheImage(AssetImage(companyImage), context);
+
+    final formattedDate = DateFormat('dd-MM-yyyy').format(dateCompleted);
+
+    return OnHover(
+      builder: (isHovered) {
+        final overlay = isHovered
+          ? Colors.transparent
+          : Colors.blueGrey.withAlpha((0.2 * 255).toInt());
+
+        return Material(
+          elevation: 8,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(15),
+              bottomRight: Radius.circular(15),
+            ),
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => navigation),
             ),
             child: Column(
               children: [
                 Expanded(
                   child: Stack(
-                    alignment: Alignment.center,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          image: DecorationImage(
-                            image: AssetImage(image!),
-                            fit: BoxFit.cover,
-                            alignment: Alignment.center,
-                          ),
+                      // Background project image
+                      Positioned.fill(
+                        child: Image.asset(
+                          image,
+                          fit: BoxFit.cover,
                         ),
                       ),
-                      Container(
-                        color: color,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            image: DecorationImage(
-                              image: AssetImage(companyImage!),
-                              fit: BoxFit.fitWidth,
-                              alignment: Alignment.bottomCenter,
-                            ),
-                          ),
+                      // Hover overlay
+                      Positioned.fill(
+                        child: Container(color: overlay),
+                      ),
+                      // Company watermark
+                      Positioned(
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: Image.asset(
+                          companyImage,
+                          fit: BoxFit.fitWidth,
                         ),
                       ),
                     ],
@@ -320,21 +314,23 @@ class ProjectsItem extends StatelessWidget {
                 ),
                 ListTile(
                   contentPadding: const EdgeInsets.all(10),
-                  leading: projectsItemIcon(sort!),
+                  leading: sort.icon,
                   title: Text(
                     title,
                     overflow: TextOverflow.fade,
+                    maxLines: 1,
                   ),
-                  // subtitle: Text(
-                  //   dateFormat.format(dateCompleted),
-                  //   overflow: TextOverflow.fade,
-                  // ),
+                  subtitle: Text(
+                    formattedDate,
+                    overflow: TextOverflow.fade,
+                    maxLines: 1,
+                  ),
                 ),
               ],
             ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }
