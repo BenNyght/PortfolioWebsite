@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+        "name": "Flutter for web (hot reloadable)",
+        "type": "dart",
+        "request": "launch",
+        "program": "lib/main.dart",
+        "args": [
+        "-d",
+        "chrome",
+        "--web-experimental-hot-reload",
+        ]
+    }
+  ]
+}
