@@ -2,6 +2,7 @@ import 'package:benjamin_portfolio/app_constants.dart';
 import 'package:benjamin_portfolio/home.dart';
 import 'package:benjamin_portfolio/projects_button.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class LandingInfo extends StatelessWidget {
@@ -138,9 +139,22 @@ class LandingInfo extends StatelessWidget {
                   spacing: spacing,
                   runSpacing: spacing,
                   children: [
-                    _buildButton('Resume', Icons.picture_as_pdf, AppStrings.resumeUrl, iconSize),
-                    _buildButton('LinkedIn', Icons.linked_camera, AppStrings.linkedInUrl, iconSize),
-                    _buildButton('About Me', Icons.person, '', iconSize, onPressed: _scrollToAbout),
+                    _buildButton(
+                      'Resume',
+                      FaIcon(FontAwesomeIcons.filePdf, size: iconSize),
+                      AppStrings.resumeUrl,
+                    ),
+                    _buildButton(
+                      'LinkedIn',
+                      FaIcon(FontAwesomeIcons.linkedin, size: iconSize),
+                      AppStrings.linkedInUrl,
+                    ),
+                    _buildButton(
+                      'About Me',
+                      Icon(Icons.person, size: iconSize),
+                      '',
+                      onPressed: _scrollToAbout,
+                    ),
                   ],
                 ),
                 SizedBox(height: spacing * 4),
@@ -154,13 +168,12 @@ class LandingInfo extends StatelessWidget {
   }
 
   Widget _buildButton(
-    String label,
-    IconData icon,
-    String url,
-    double iconSize, {
-    VoidCallback? onPressed,
+  String label,
+  Widget iconWidget,
+  String url, {
+  VoidCallback? onPressed,
   }) {
-    return ElevatedButton.icon(
+    return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.black,
@@ -168,10 +181,18 @@ class LandingInfo extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
         minimumSize: const Size(150, 56),
+        alignment: Alignment.center,
       ),
       onPressed: onPressed ?? () => _launchUrl(url),
-      icon: Icon(icon, size: iconSize),
-      label: Text(label),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          iconWidget,
+          const SizedBox(width: 8),
+          Text(label),
+        ],
+      ),
     );
   }
 }
