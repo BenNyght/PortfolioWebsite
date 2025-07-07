@@ -1,5 +1,4 @@
 import 'package:benjamin_portfolio/app_constants.dart';
-import 'package:benjamin_portfolio/home.dart';
 import 'package:flutter/material.dart';
 
 class AboutMe extends StatelessWidget {
@@ -68,13 +67,13 @@ class AboutMe extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 32),
+            const SizedBox(height: 24),
 
             // SUMMARY
-            const SelectableText(
+            SelectableText(
               'Benjamin Finlay is a game systems/architecture engineer. '
               'With previous experience as a gameplay, UI, and build engineer.',
-              style: TextStyle(height: 1.5, color: Colors.white70),
+              style: const TextStyle(height: 1.5, color: Colors.white70),
             ),
             SizedBox(height: spacing * 2),
 
@@ -129,45 +128,82 @@ class AboutMe extends StatelessWidget {
               style: textTheme.headlineSmall?.copyWith(color: AppColors.primary),
             ),
             const SizedBox(height: 16),
-
-            // Each entry is in reverse‑chronological order
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SelectableText(
+                  'PlaySide Studios',
+                  style: textTheme.titleLarge?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
             _ExperienceEntry(
               dateRange: 'Jul 2024 — Present',
-              location: 'Gold Coast, Australia',
-              position: 'Software Engineer III',
               company: 'PlaySide Studios',
+              position: 'Software Engineer III',
               responsibilities: [
-                'Designing and developing underlying systems and architecture for an unreleased title.',
+                'Developing underlying systems and architecture for an Shattered (MR/VR).',
+                'Working as a build and test automation engineer for Civilization 7 VR',
                 'Supporting junior staff in implementing gameplay features.',
-                'Fine‑tuning audio integration and enhancing animation workflows for a better developer experience.',
+                'Developing systems and tooling for Mouse: PI For Hire Work with Fumi Games'
               ],
             ),
             const SizedBox(height: 24),
             _ExperienceEntry(
               dateRange: 'Mar 2023 — Jul 2024',
-              location: 'Gold Coast, Australia',
-              position: 'Software Engineer II',
               company: 'PlaySide Studios',
+              position: 'Software Engineer II',
               responsibilities: [
-                'Developed core mechanics and systems for \u201cShiba Eternity\u201d and other unreleased titles.',
-                'Enhanced AR Dragon and contributed to company shared technology.',
+                'Developed core mechanics and systems for Shiba Eternity, Shattered (MR/VR) and other unreleased titles.',
+                'Developed company core tech for Mixed Reality, Benchmarking, and VO/Audio Pipelines'
               ],
             ),
             const SizedBox(height: 24),
             _ExperienceEntry(
               dateRange: 'Jun 2019 — Mar 2023',
-              location: 'Gold Coast, Australia',
-              position: 'Associate Software Engineer',
               company: 'PlaySide Studios',
+              position: 'Associate Software Engineer',
               responsibilities: [
                 'Contributed to titles such as Shiba Eternity and Fishy Bits 2.',
                 'Regularly handled debugging, feature development, performance tuning, and multidisciplinary collaboration.',
               ],
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 32),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SelectableText(
+                  'USC CIDSEL',
+                  style: textTheme.titleLarge?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            _ExperienceEntry(
+              dateRange: 'Jun 2020 — Jan 2021',
+              position: 'Programmer & Technical Consultant',
+              company: 'USC CIDSEL',
+              responsibilities: [
+                'Provided technology support in program design and delivery for executive education and development projects.',
+              ],
+            ),
+            const SizedBox(height: 32),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SelectableText(
+                  'University of the Sunshine Coast',
+                  style: textTheme.titleLarge?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
             _ExperienceEntry(
               dateRange: 'Jun 2019 — Jan 2022',
-              location: 'Sunshine Coast, Australia',
               position: 'Programmer & VR Developer',
               company: 'University of the Sunshine Coast',
               responsibilities: [
@@ -176,18 +212,7 @@ class AboutMe extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             _ExperienceEntry(
-              dateRange: 'Jun 2020 — Jan 2021',
-              location: 'Noosa, Australia',
-              position: 'Programmer & Technical Consultant',
-              company: 'USC CIDSEL',
-              responsibilities: [
-                'Provided technology support in program design and delivery for executive education and development projects.',
-              ],
-            ),
-            const SizedBox(height: 24),
-            _ExperienceEntry(
               dateRange: 'Jul 2019 — Jan 2021',
-              location: 'Sunshine Coast, Australia',
               position: 'Esports Manager',
               company: 'University of the Sunshine Coast',
               responsibilities: [
@@ -204,12 +229,23 @@ class AboutMe extends StatelessWidget {
               style: textTheme.headlineSmall?.copyWith(color: AppColors.primary),
             ),
             const SizedBox(height: 16),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SelectableText(
+                  'University of the Sunshine Coast',
+                  style: textTheme.titleLarge?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
             _EducationEntry(
               date: 'Nov 2021',
               location: 'Sunshine Coast, QLD',
               degree: 'Bachelor of Creative Industries (Honours)',
               institution: 'University of the Sunshine Coast',
-              details: 'Specializing in Adaptive Level Generation',
+              details: 'Specializing in Adaptive Level Generation (Honours Class I)',
             ),
             const SizedBox(height: 24),
             _EducationEntry(
@@ -219,6 +255,7 @@ class AboutMe extends StatelessWidget {
               institution: 'University of the Sunshine Coast',
               details: 'Minor in Games Programming, Game Art, and Software Development',
             ),
+            const SizedBox(height: 100),
           ],
         ),
       ),
@@ -279,54 +316,57 @@ class _SkillChip extends StatelessWidget {
 class _ExperienceEntry extends StatelessWidget {
   const _ExperienceEntry({
     required this.dateRange,
-    required this.location,
+    this.location,
     required this.position,
-    required this.company,
+    this.company,
     required this.responsibilities,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final String dateRange;
-  final String location;
+  final String? location;
   final String position;
-  final String company;
+  final String? company;
   final List<String> responsibilities;
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          dateRange,
-          style: textTheme.bodySmall?.copyWith(
-            color: Colors.white70,
-            fontWeight: FontWeight.w600,
+    final t = Theme.of(context).textTheme;
+    return Padding(
+      padding: const EdgeInsets.only(left: 20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SelectableText(
+            dateRange,
+            style: t.bodySmall
+                ?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600),
           ),
-        ),
-        Text(
-          location,
-          style: textTheme.bodySmall?.copyWith(color: Colors.white70),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          '$position at $company',
-          style: textTheme.titleMedium?.copyWith(
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        const SizedBox(height: 4),
-        ...responsibilities.map(
-          (r) => Padding(
-            padding: const EdgeInsets.only(bottom: 4.0),
-            child: Text(
-              '\u2022 $r',
-              style: const TextStyle(height: 1.5, color: Colors.white70),
+      
+          // only show location if provided
+          if (location?.isNotEmpty ?? false) ...[
+            SelectableText(
+              location!,
+              style: t.bodySmall?.copyWith(color: Colors.white70),
             ),
+            const SizedBox(height: 4),
+          ],
+      
+          SelectableText(
+            '$position at $company',
+            style: t.titleMedium
+                ?.copyWith(color: Colors.white, fontWeight: FontWeight.w600),
           ),
-        ),
-      ],
+          const SizedBox(height: 4),
+          ...responsibilities.map((r) => Padding(
+                padding: const EdgeInsets.only(bottom: 4.0),
+                child: SelectableText(
+                  '• $r',
+                  style: const TextStyle(height: 1.5, color: Colors.white70),
+                ),
+              )),
+        ],
+      ),
     );
   }
 }
@@ -349,34 +389,37 @@ class _EducationEntry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          date,
-          style: textTheme.bodySmall?.copyWith(
-            color: Colors.white70,
-            fontWeight: FontWeight.w600,
+    return Padding(
+      padding: const EdgeInsets.only(left: 20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            date,
+            style: textTheme.bodySmall?.copyWith(
+              color: Colors.white70,
+              fontWeight: FontWeight.w600,
+            ),
           ),
-        ),
-        Text(
-          location,
-          style: textTheme.bodySmall?.copyWith(color: Colors.white70),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          '$degree at $institution',
-          style: textTheme.titleMedium?.copyWith(
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
+          Text(
+            location,
+            style: textTheme.bodySmall?.copyWith(color: Colors.white70),
           ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          details,
-          style: const TextStyle(height: 1.5, color: Colors.white70),
-        ),
-      ],
+          const SizedBox(height: 4),
+          Text(
+            '$degree at $institution',
+            style: textTheme.titleMedium?.copyWith(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            details,
+            style: const TextStyle(height: 1.5, color: Colors.white70),
+          ),
+        ],
+      ),
     );
   }
 }

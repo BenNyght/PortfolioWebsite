@@ -1,5 +1,4 @@
 import 'package:benjamin_portfolio/app_constants.dart';
-import 'package:benjamin_portfolio/home.dart';
 import 'package:benjamin_portfolio/projects_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

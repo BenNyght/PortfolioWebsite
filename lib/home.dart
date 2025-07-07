@@ -15,7 +15,7 @@ class _HomeViewState extends State<HomeView> {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey _aboutKey = GlobalKey();
   
-  static const double _navRevealOffset = 400.0;
+  static const double _navRevealOffset = 800.0;
   static const double _navBarHeight = 56.0;
 
   @override
@@ -56,6 +56,7 @@ class _HomeViewState extends State<HomeView> {
     final scale = screenWidth / 1200.0;
     final spacing = 16.0 * scale.clamp(0.8, 1.2);
     final iconSize = 20.0 * scale.clamp(0.8, 1.2);
+    final bool isCompact = screenWidth < 600;
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -92,18 +93,20 @@ class _HomeViewState extends State<HomeView> {
                   color: AppColors.navbar,
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment:isCompact ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
                     children: [
-                      // logo or title
-                      Text(
-                        AppStrings.name,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                      if (!isCompact)
+                        Text(
+                          AppStrings.name,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Row(
+                      Wrap(
+                        spacing: 0,
+                        alignment: isCompact ? WrapAlignment.center : WrapAlignment.end,
                         children: [
                           _buildButton(
                             'Resume',
@@ -115,6 +118,7 @@ class _HomeViewState extends State<HomeView> {
                             FaIcon(FontAwesomeIcons.linkedin, size: iconSize),
                             AppStrings.linkedInUrl,
                           ),
+                          if (!isCompact)
                           _buildButton(
                             'About Me',
                             Icon(Icons.person, size: iconSize),
@@ -158,7 +162,7 @@ class _HomeViewState extends State<HomeView> {
         elevation: 2,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-        minimumSize: const Size(150, 56),
+        minimumSize: const Size(56, 56),
         alignment: Alignment.center,
       ),
       onPressed: onPressed ?? () => _launchUrl(url),
