@@ -1,22 +1,15 @@
+import 'package:benjamin_portfolio/app_constants.dart';
 import 'package:benjamin_portfolio/home.dart';
 import 'package:flutter/material.dart';
 
-/// Stand‑alone widget that renders the entire “About / Skills / Experience /
-/// Education” section of the landing page.
-///
-/// The rest of the app only needs to pass in the layout‑specific values that it
-/// already calculates (scale & spacing) plus the [aboutKey] used for smooth
-/// scrolling from the hero buttons.
 class AboutMe extends StatelessWidget {
   const AboutMe({
     Key? key,
-    required this.aboutKey,
     required this.scale,
     required this.spacing,
     this.maxContentWidth = 1000,
   }) : super(key: key);
 
-  final GlobalKey aboutKey;
   final double scale;
   final double spacing;
   final double maxContentWidth;
@@ -91,7 +84,6 @@ class AboutMe extends StatelessWidget {
             SelectableText(
               'SKILLS',
               style: textTheme.headlineSmall?.copyWith(color: AppColors.primary),
-              key: aboutKey,
             ),
             const SizedBox(height: 16),
 
