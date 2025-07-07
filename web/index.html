@@ -1,28 +1,72 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:fb="http://ogp.me/ns/fb#">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
 <head>
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  
-  <meta property="og:title" content="Benjamin Finlay - Portfolio"/>
-  <meta property="og:description" content="Hey! I love programming and technology, so come and check out some of my awesome projects. Including a horror mixed reality VR game, training simulations, birds in AR, and more..."/>
-  <meta property="og:image" content="https://i.imgur.com/hu6ftSC.jpg"/>
-  <meta property="og:url" content="https://benjaminfinlay.com/#/"/>
-  <meta property="og:site_name" content="Benjamin Finlay"/>
-  <link rel="image_src" href="https://i.imgur.com/hu6ftSC.jpg"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <!-- iOS meta tags & icons -->
+  <!-- 1. Responsive viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 2. SEO basics -->
+  <title>Benjamin Finlay – Game Software Engineer</title>
+  <meta name="description" content="Benjamin Finlay is a game systems/architecture engineer. With previous experience as a gameplay, UI, and build engineer.">
+  <meta name="keywords" content="Portfolio, VR/MR, Game Development, Software Engineer, C#, C++, Unity, Unreal Engine">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://benjaminfinlay.com/">
+
+  <!-- 3. Open Graph / Social -->
+  <meta property="og:site_name" content="Benjamin Finlay">
+  <meta property="og:title" content="Benjamin Finlay – Game Systems/Architecture Engineer">
+  <meta property="og:description" content="Check out my portfolio of games, simulations, and more—built in Flutter Web!">
+  <meta property="og:image" content="https://i.imgur.com/hu6ftSC.jpg">
+  <meta property="og:url" content="https://benjaminfinlay.com/">
+  <link rel="image_src" href="https://i.imgur.com/hu6ftSC.jpg">
+
+  <!-- 4. iOS/Web App Icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="benjamin_portfolio">
+  <meta name="apple-mobile-web-app-title" content="Benjamin Finlay">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/ico" href="favicon.ico"/>
-
-  <title>benjamin_portfolio</title>
   <link rel="manifest" href="manifest.json">
+
+  <!-- 5. Dynamic per-route meta (bots executing JS will pick this up) -->
+  <script>
+    (function() {
+      const metaConfig = {
+        '/': {
+          title: 'Home – Benjamin Finlay',
+          description: 'Welcome to my portfolio website built with Flutter Web.'
+        },
+        '/about': {
+          title: 'About – Benjamin Finlay',
+          description: 'Learn more about my background in game and XR development.'
+        },
+        '/projects': {
+          title: 'Projects – Benjamin Finlay',
+          description: 'Explore my work: VR horror, AR training sims, and more.'
+        }
+      };
+      const path = window.location.pathname;
+      if (metaConfig[path]) {
+        document.title = metaConfig[path].title;
+        const desc = document.querySelector('meta[name="description"]');
+        if (desc) desc.setAttribute('content', metaConfig[path].description);
+      }
+    })();
+  </script>
+
+  <!-- 6. (Optional) Redirect bots to a Rendertron pre-renderer -->
+  <!--
+  <script>
+    if (navigator.userAgent.match(/(bot|crawler|spider|robot|crawling)/i)) {
+      const prerender = 'https://your-rendertron-instance/render/';
+      window.location.replace(prerender + encodeURIComponent(window.location.href));
+    }
+  </script>
+  -->
+
 </head>
 <body>
   <script>
