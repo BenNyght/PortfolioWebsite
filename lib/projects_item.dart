@@ -7,15 +7,20 @@ import 'package:benjamin_portfolio/projects/archegnomeies/archegnomeies.dart';
 import 'package:benjamin_portfolio/projects/battleDonut/battle_donut.dart';
 import 'package:benjamin_portfolio/projects/birdsOnShow/birds_on_show.dart';
 import 'package:benjamin_portfolio/projects/cityFight/city_fight.dart';
+import 'package:benjamin_portfolio/projects/civ7vr/civ7vr.dart';
 import 'package:benjamin_portfolio/projects/conjoin/conjoin.dart';
 import 'package:benjamin_portfolio/projects/dndMapViewer/easy_tabletop.dart';
+import 'package:benjamin_portfolio/projects/dumbWaysVR/dumbwaysvr.dart';
 import 'package:benjamin_portfolio/projects/fishybits2/fishybits2.dart';
 import 'package:benjamin_portfolio/projects/flick/flick.dart';
+import 'package:benjamin_portfolio/projects/game-of-thrones/gameofthrones.dart';
 import 'package:benjamin_portfolio/projects/gympieSupport/gympie_support.dart';
+import 'package:benjamin_portfolio/projects/mouse/mouse.dart';
 import 'package:benjamin_portfolio/projects/papersimulation/paper_simuation.dart';
 import 'package:benjamin_portfolio/projects/portfolio/portfolio.dart';
 import 'package:benjamin_portfolio/projects/projectManager/project_manager.dart';
 import 'package:benjamin_portfolio/projects/runPharaohRun/run_pharaoh_run.dart';
+import 'package:benjamin_portfolio/projects/shattered/shattered.dart';
 import 'package:benjamin_portfolio/projects/shibaEternity/shibaeternity.dart';
 import 'package:benjamin_portfolio/projects/timeJump/time_jump.dart';
 import 'package:benjamin_portfolio/projects/vrTreadmill/vr_treadmill.dart';
@@ -27,12 +32,44 @@ import 'package:intl/intl.dart';
 List<ProjectsItem> projectsList() {
   return [
     ProjectsItem(
+      title: "MOUSE: P.I. For Hire",
+      dateCompleted: DateTime(2022, 10, 19),
+      image: "lib/projects/shibaeternity/Shiba_Eternity_Logo.png",
+      companyImage: "assets/companies/meta/meta-project-cover.png",
+      sort: ProjectsSort.professional,
+      navigation: MousePage(),
+    ),
+    ProjectsItem(
+      title: "Dumb Ways Free For All",
+      dateCompleted: DateTime(2022, 10, 19),
+      image: "lib/projects/shibaeternity/Shiba_Eternity_Logo.png",
+      companyImage: "assets/companies/meta/meta-project-cover.png",
+      sort: ProjectsSort.professional,
+      navigation: DumbWaysVRPage(),
+    ),
+    ProjectsItem(
+      title: "Civilization 7 VR",
+      dateCompleted: DateTime(2022, 10, 19),
+      image: "lib/projects/shibaeternity/Shiba_Eternity_Logo.png",
+      companyImage: "assets/companies/meta/meta-project-cover.png",
+      sort: ProjectsSort.professional,
+      navigation: Civ7VrPage(),
+    ),
+    ProjectsItem(
+      title: "Shattered (MR)",
+      dateCompleted: DateTime(2022, 10, 19),
+      image: "lib/projects/shibaeternity/Shiba_Eternity_Logo.png",
+      companyImage: "assets/companies/meta/meta-project-cover.png",
+      sort: ProjectsSort.professional,
+      navigation: ShatteredPage(),
+    ),
+    ProjectsItem(
       title: "Shiba Eternity",
       dateCompleted: DateTime(2022, 10, 19),
       image: "lib/projects/shibaeternity/Shiba_Eternity_Logo.png",
       companyImage: "lib/projects/fishybits2/PlaySideCover.png",
       sort: ProjectsSort.professional,
-      navigation: ShibaEternity(),
+      navigation: ShibaEternityPage(),
     ),
     ProjectsItem(
       title: "AR Dragon",
@@ -40,7 +77,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/arDragon/ardragon-logo.jpg",
       companyImage: "lib/projects/fishybits2/PlaySideCover.png",
       sort: ProjectsSort.professional,
-      navigation: ArDragon(),
+      navigation: ArDragonPage(),
     ),
     ProjectsItem(
       title: "Fishy Bits 2",
@@ -48,15 +85,20 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/fishybits2/fishybits1.png",
       companyImage: "lib/projects/fishybits2/PlaySideCover.png",
       sort: ProjectsSort.professional,
-      navigation: FishyBits(),
+      navigation: FishyBitsPage(),
     ),
+  ];
+}
+
+List<ProjectsItem> oldProjectsList() {
+  return [
     ProjectsItem(
       title: "AnatoMe",
       dateCompleted: DateTime(2021, 12, 11),
       image: "lib/projects/anatoMe/AnatoMe.png",
       companyImage: "lib/projects/anatoMe/SpinDriftCover.png",
       sort: ProjectsSort.professional,
-      navigation: AnatoMe(),
+      navigation: AnatoMePage(),
     ),
     ProjectsItem(
       title: "Adaptive Level Generation",
@@ -65,7 +107,7 @@ List<ProjectsItem> projectsList() {
       companyImage:
           "lib/projects/adaptiveLevelGeneration/ImmortalityInteractiveCover.png",
       sort: ProjectsSort.professional,
-      navigation: AdaptiveLevelGeneration(),
+      navigation: AdaptiveLevelGenerationPage(),
     ),
     ProjectsItem(
       title: "Paper Sorting Simulation",
@@ -73,7 +115,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/papersimulation/2.jpg",
       companyImage: "lib/projects/papersimulation/EndeavourFoundationCover.png",
       sort: ProjectsSort.professional,
-      navigation: PaperSimulation(),
+      navigation: PaperSimulationPage(),
     ),
     ProjectsItem(
       title: "Alt-AR",
@@ -81,7 +123,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/altAR/altAR.jpg",
       companyImage: "lib/projects/altAR/AnywhereFestivalCover.png",
       sort: ProjectsSort.professional,
-      navigation: AltAR(),
+      navigation: AltARPage(),
     ),
     ProjectsItem(
       title: "Project Manager",
@@ -89,7 +131,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/projectManager/cidselDatabase.jpg",
       companyImage: "lib/projects/projectManager/USCCidselCover.png",
       sort: ProjectsSort.professional,
-      navigation: ProjectManager(),
+      navigation: ProjectManagerPage(),
     ),
     ProjectsItem(
       title: "Hometown Buddy (Gympie Region)",
@@ -97,7 +139,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/gympieSupport/gympieSupport.jpg",
       companyImage: "lib/projects/gympieSupport/CommunityActionCover.png",
       sort: ProjectsSort.professional,
-      navigation: GympieSupport(),
+      navigation: GympieSupportPage(),
     ),
     ProjectsItem(
       title: "Conjoin",
@@ -105,7 +147,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/conjoin/conjoin.jpg",
       companyImage: "lib/projects/conjoin/PersonalCover.png",
       sort: ProjectsSort.personal,
-      navigation: Conjoin(),
+      navigation: ConjoinPage(),
     ),
     ProjectsItem(
       title: "Nyght's 3D Audio",
@@ -114,7 +156,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/3dAudio/audiologo.png",
       companyImage: "lib/projects/3dAudio/AudioJamCover.png",
       sort: ProjectsSort.gamejam,
-      navigation: ThreeDAudio(),
+      navigation: ThreeDAudioPage(),
     ),
     ProjectsItem(
       title: "Easy Tabletop Tools",
@@ -122,7 +164,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/dndMapViewer/d&dViewerLogo.png",
       companyImage: "lib/projects/dndMapViewer/PersonalCover.png",
       sort: ProjectsSort.personal,
-      navigation: EasyTabletop(),
+      navigation: EasyTabletopPage(),
     ),
     ProjectsItem(
       title: "VR Movement Tracking",
@@ -130,7 +172,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/vrTreadmill/Screenshot_5.png",
       companyImage: "lib/projects/vrTreadmill/EngageLabCover.png",
       sort: ProjectsSort.professional,
-      navigation: VRTreadmill(),
+      navigation: VRTreadmillPage(),
     ),
     ProjectsItem(
       title: "Run Pharaoh Run!",
@@ -139,7 +181,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/runPharaohRun/runPharaohRun.jpg",
       companyImage: "lib/projects/runPharaohRun/GlobalGameJamCover.png",
       sort: ProjectsSort.gamejam,
-      navigation: RunPharaohRun(),
+      navigation: RunPharaohRunPage(),
     ),
     ProjectsItem(
       title: "CityFight (Digital Re-imagining)",
@@ -147,7 +189,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/cityFight/cityFightLogo.png",
       companyImage: "lib/projects/cityFight/ArmyCover.png",
       sort: ProjectsSort.professional,
-      navigation: CityFight(),
+      navigation: CityFightPage(),
     ),
     ProjectsItem(
       title: "Battle Donut",
@@ -156,7 +198,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/battleDonut/battleDonut.png",
       companyImage: "lib/projects/battleDonut/SeriousGamesCover.png",
       sort: ProjectsSort.university,
-      navigation: BattleDonut(),
+      navigation: BattleDonutPage(),
     ),
     ProjectsItem(
       title: "BirdsOnShow AR App",
@@ -165,7 +207,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/birdsOnShow/birds.jpg",
       companyImage: "lib/projects/birdsOnShow/MaryCairncrossCover.png",
       sort: ProjectsSort.professional,
-      navigation: BirdsOnShow(),
+      navigation: BirdsOnShowPage(),
     ),
     ProjectsItem(
       title: "Apocalypse Now? (48hr Sunjam 2019)",
@@ -174,7 +216,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/apocalypseNow/apocalypseNow.jpg",
       companyImage: "lib/projects/timeJump/SunjamCover.png",
       sort: ProjectsSort.gamejam,
-      navigation: ApocalypseNow(),
+      navigation: ApocalypseNowPage(),
     ),
     ProjectsItem(
       title: "Arch E-Gnome-ies",
@@ -183,7 +225,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/archegnomeies/archegnomeies.png",
       companyImage: "lib/projects/archegnomeies/SeriousGamesCover.png",
       sort: ProjectsSort.university,
-      navigation: Archegnomeies(),
+      navigation: ArchegnomeiesPage(),
     ),
     ProjectsItem(
       title: "Flick (48hr Global Game Jam 2019)",
@@ -192,7 +234,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/flick/flick.jpg",
       companyImage: "lib/projects/flick/GlobalGameJamCover.png",
       sort: ProjectsSort.gamejam,
-      navigation: Flick(),
+      navigation: FlickPage(),
     ),
     ProjectsItem(
       title: "Portfolio",
@@ -200,7 +242,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/portfolio/background.jpg",
       companyImage: "lib/projects/portfolio/PersonalCover.png",
       sort: ProjectsSort.personal,
-      navigation: Portfolio(),
+      navigation: PortfolioPage(),
     ),
     ProjectsItem(
       title: "Time Jump (48hr Sunjam 2018)",
@@ -209,7 +251,7 @@ List<ProjectsItem> projectsList() {
       image: "lib/projects/timeJump/timeJump.png",
       companyImage: "lib/projects/timeJump/SunjamCover.png",
       sort: ProjectsSort.gamejam,
-      navigation: TimeJump(),
+      navigation: TimeJumpPage(),
     ),
   ];
 }
@@ -320,11 +362,11 @@ class ProjectsItem extends StatelessWidget {
                     overflow: TextOverflow.fade,
                     maxLines: 1,
                   ),
-                  subtitle: Text(
-                    formattedDate,
-                    overflow: TextOverflow.fade,
-                    maxLines: 1,
-                  ),
+                  //subtitle: Text(
+                  //  formattedDate,
+                  //  overflow: TextOverflow.fade,
+                  //  maxLines: 1,
+                  //),
                 ),
               ],
             ),

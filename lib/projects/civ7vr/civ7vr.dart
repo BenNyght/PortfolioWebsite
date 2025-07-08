@@ -3,9 +3,9 @@ import 'package:benjamin_portfolio/widgets/app_store_button.dart';
 import 'package:benjamin_portfolio/widgets/google_play_button.dart';
 import 'package:benjamin_portfolio/widgets/project_base_page.dart';
 
-class ShibaEternityPage extends StatelessWidget 
+class Civ7VrPage extends StatelessWidget 
 {
-  static const routeName = '/projects/shiba-eternity';
+  static const routeName = '/projects/civilization-7-vr';
 
   static const _playLink = 'https://play.google.com/store/apps/details?id=com.shibagames.shibawoof&hl=en_AU&gl=US';
 
@@ -19,7 +19,7 @@ class ShibaEternityPage extends StatelessWidget
       "lib/projects/shibaeternity/shibaeternity5.png",
      ];
 
-  const ShibaEternityPage({Key? key}) : super(key: key);
+  const Civ7VrPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

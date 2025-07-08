@@ -3,7 +3,7 @@ import 'package:benjamin_portfolio/widgets/app_store_button.dart';
 import 'package:benjamin_portfolio/widgets/google_play_button.dart';
 import 'package:benjamin_portfolio/widgets/project_base_page.dart';
 
-class ShibaEternityPage extends StatelessWidget 
+class ShatteredPage extends StatelessWidget 
 {
   static const routeName = '/projects/shiba-eternity';
 
@@ -19,7 +19,7 @@ class ShibaEternityPage extends StatelessWidget
       "lib/projects/shibaeternity/shibaeternity5.png",
      ];
 
-  const ShibaEternityPage({Key? key}) : super(key: key);
+  const ShatteredPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

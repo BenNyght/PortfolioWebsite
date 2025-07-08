@@ -24,5 +24,12 @@ class AppColors {
   static const chipBackground1 = Color(0xFFE67C3E);
   static const chipBackground2 = Color(0xFFDD8755);
   static const chipBackground3 = Color(0xFFD9936B);
+  static const link = Color(0xFFD9936B);
   static const chipText = Colors.black;
+  static const bodyText = Colors.white70;
+}
+
+class AppAssets {
+  static const appStoreLogo = "assets/general/downloadonappstore.png";
+  static const googlePlayLogo = "assets/general/getongoogleplay.png";
 }

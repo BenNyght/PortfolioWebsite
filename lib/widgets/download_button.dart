@@ -1,34 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:benjamin_portfolio/app_constants.dart';
+import 'package:benjamin_portfolio/utils/url_launcher_util.dart';
 
-class DownloadButton extends StatefulWidget {
+/// A styled download button that opens the provided [downloadLink].
+class DownloadButton extends StatelessWidget
+{
+  /// The URL to launch when the button is pressed.
   final String downloadLink;
-  DownloadButton({required this.downloadLink});
+
+  const DownloadButton({
+    Key? key,
+    required this.downloadLink,
+  }) : super(key: key);
 
   @override
-  _DownloadButtonState createState() => _DownloadButtonState();
-}
-
-class _DownloadButtonState extends State<DownloadButton> {
-  void _launchURL(String _url) async => await canLaunchUrlString(_url)
-      ? await launchUrlString(_url)
-      : throw 'Could not launch $_url';
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-      onPressed: () {
-        _launchURL(widget.downloadLink);
-      },
-      icon: Icon(Icons.file_download),
-      label: Container(
-        width: 200,
-        height: 50,
-        alignment: Alignment.center,
-        child: Text(
-          "Download",
-          style: TextStyle(fontSize: 20),
+  Widget build(BuildContext context)
+  {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: ElevatedButton.icon(
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: AppColors.primary,
+          elevation: 2,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 24,
+            vertical: 12,
+          ),
+          textStyle: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
         ),
+        icon: const Icon(
+          Icons.file_download,
+          size: 20,
+        ),
+        label: const Text('Download'),
+        onPressed: () => launchUrl(downloadLink),
       ),
     );
   }

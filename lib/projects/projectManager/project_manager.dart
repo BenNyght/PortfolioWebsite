@@ -1,76 +1,60 @@
-import 'package:benjamin_portfolio/widgets/heading_0_rich.dart';
-import 'package:benjamin_portfolio/widgets/heading_1.dart';
-import 'package:benjamin_portfolio/widgets/image_library.dart';
-import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
-import 'package:benjamin_portfolio/widgets/project_content.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:benjamin_portfolio/app_constants.dart';
+import 'package:benjamin_portfolio/utils/url_launcher_util.dart';
+import 'package:benjamin_portfolio/widgets/project_base_page.dart';
 
-class ProjectManager extends StatefulWidget {
+class ProjectManagerPage extends StatelessWidget 
+{
+  static const routeName = '/projects/project-manager';
+
+  static const _images = <String>[
+    'lib/projects/projectManager/1.jpg',
+    'lib/projects/projectManager/2.jpg',
+    'lib/projects/projectManager/3.jpg',
+    'lib/projects/projectManager/4.jpg',
+    'lib/projects/projectManager/5.jpg',
+    'lib/projects/projectManager/6.jpg',
+  ];
+
+  /// Creates a [ProjectManagerPage].
+  const ProjectManagerPage({
+    Key? key,
+  }) : super(key: key);
+
   @override
-  _ProjectManagerState createState() => _ProjectManagerState();
-}
+  Widget build(BuildContext context) 
+  {
+    final bodyStyle = Theme.of(context)
+        .textTheme
+        .bodyMedium
+        ?.copyWith(color: AppColors.bodyText, fontSize: 18);
 
-class _ProjectManagerState extends State<ProjectManager> {
-  void _launchURL(String _url) async => await canLaunchUrlString(_url)
-      ? await launchUrlString(_url)
-      : throw 'Could not launch $_url';
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        bottom: true,
-        top: true,
-        left: true,
-        right: true,
-        child: CustomScrollView(
-          slivers: <Widget>[
-            ProjectAppBar(title: "Project Manager"),
-            ProjectContent(children: [
-              HeadingOne("Project Manager"),
-              HeadingZeroRich([
-                new TextSpan(
-                  text: 'Developed for ',
-                  style: new TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                  ),
-                ),
-                new TextSpan(
-                  text: 'USC CIDSEL',
-                  style: new TextStyle(
-                    color: Colors.blue,
-                    fontSize: 18,
-                  ),
-                  recognizer: new TapGestureRecognizer()
-                    ..onTap = () {
-                      _launchURL(
-                          "https://www.usc.edu.au/community/international-development");
-                    },
-                ),
-                new TextSpan(
-                  text:
-                      ' in an effort to redesign their file management and increase productivity. Developed in Flutter, I built and tested the project in approximatly 5 months and is currently being actively used within the Department',
-                  style: new TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                  ),
-                ),
-              ]),
-              ImageLibrary(images: [
-                "lib/projects/projectManager/1.jpg",
-                "lib/projects/projectManager/2.jpg",
-                "lib/projects/projectManager/3.jpg",
-                "lib/projects/projectManager/4.jpg",
-                "lib/projects/projectManager/5.jpg",
-                "lib/projects/projectManager/6.jpg",
-              ]),
-            ]),
-          ],
-        ),
+    return ProjectBasePage(
+      pageTitle: 'Project Manager',
+      heading: 'Project Manager',
+      descriptionSpan: TextSpan(
+        style: bodyStyle,
+        children: <InlineSpan>[
+          const TextSpan(text: 'Developed for '),
+          TextSpan(
+            text: 'USC CIDSEL',
+            style: bodyStyle?.copyWith(color: AppColors.link),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                launchUrl(
+                  'https://www.usc.edu.au/community/unisc-cidsel',
+                );
+              },
+          ),
+          const TextSpan(text:
+            ' in an effort to redesign their file management and increase productivity. '
+            'Developed in Flutter, I built and tested the project in approximately five months '
+            'and it’s currently being actively used within the department.',
+          ),
+        ],
       ),
+      images: _images,
     );
   }
 }

@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:benjamin_portfolio/app_constants.dart';
 
-class ProjectAppBar extends StatefulWidget {
+/// A simple sliver app bar styled to match the home-page navbar:
+/// same height, background color, padding, and text style.
+class ProjectAppBar extends StatelessWidget 
+{
+  /// The text to display in the app bar.
   final String title;
 
-  ProjectAppBar({required this.title});
+  /// Creates a [ProjectAppBar] with the provided [title].
+  const ProjectAppBar({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
 
   @override
-  _ProjectAppBarState createState() => _ProjectAppBarState();
-}
-
-class _ProjectAppBarState extends State<ProjectAppBar> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) 
+  {
     return SliverAppBar(
-      title: Text(widget.title),
-      backgroundColor: Color(0xFF232323),
-      expandedHeight: 60,
-      snap: false,
-      pinned: false,
-      floating: false,
-      flexibleSpace: FlexibleSpaceBar(
-        centerTitle: false,
-        collapseMode: CollapseMode.parallax,
-        background: Image.asset(
-          "assets/general/background.jpg",
-          fit: BoxFit.cover,
-        ),
+      pinned: true,
+      backgroundColor: AppColors.background,
+      iconTheme: const IconThemeData(color: AppColors.primary), // Fixes back button color
+      title: Text(
+        title,
+        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+              color: AppColors.primary,
+              fontWeight: FontWeight.bold,
+            ),
       ),
     );
   }

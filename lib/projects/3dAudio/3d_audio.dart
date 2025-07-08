@@ -1,80 +1,60 @@
-import 'package:benjamin_portfolio/widgets/download_button.dart';
-import 'package:benjamin_portfolio/widgets/heading_0_rich.dart';
-import 'package:benjamin_portfolio/widgets/heading_1.dart';
-import 'package:benjamin_portfolio/widgets/heading_2.dart';
-import 'package:benjamin_portfolio/widgets/image_library.dart';
-import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
-import 'package:benjamin_portfolio/widgets/project_content.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:benjamin_portfolio/app_constants.dart';
+import 'package:benjamin_portfolio/utils/url_launcher_util.dart';
+import 'package:benjamin_portfolio/widgets/project_base_page.dart';
+import 'package:benjamin_portfolio/widgets/download_button.dart';
 
-class ThreeDAudio extends StatefulWidget {
+class ThreeDAudioPage extends StatelessWidget 
+{
+  static const routeName = '/projects/3d-audio';
+
+  static const _downloadLink =
+    'https://bennyght.itch.io/nyghts-3d-audio';
+
+  static const _images = <String>[
+    'lib/projects/3dAudio/audio1.png',
+    'lib/projects/3dAudio/audioname.png',
+  ];
+
+  const ThreeDAudioPage({Key? key}) : super(key: key);
+
   @override
-  _ThreeDAudioState createState() => _ThreeDAudioState();
-}
+  Widget build(BuildContext context) 
+  {
+    final bodyStyle = Theme.of(context)
+        .textTheme
+        .bodyMedium
+        ?.copyWith(color: AppColors.bodyText, fontSize: 18);
 
-class _ThreeDAudioState extends State<ThreeDAudio> {
-  void _launchURL(String _url) async => await canLaunchUrlString(_url)
-      ? await launchUrlString(_url)
-      : throw 'Could not launch $_url';
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        bottom: true,
-        top: true,
-        left: true,
-        right: true,
-        child: CustomScrollView(
-          slivers: <Widget>[
-            ProjectAppBar(title: "3D Audio"),
-            ProjectContent(
-              children: [
-                HeadingOne("3D Audio"),
-                HeadingTwo("2020 Audio Jam Submission"),
-                HeadingZeroRich([
-                  new TextSpan(
-                    text: 'Basic 3D audio scene using a version of ',
-                    style: new TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                    ),
-                  ),
-                  new TextSpan(
-                    text: "Craig Reynold's",
-                    style: new TextStyle(
-                      color: Colors.blue,
-                      fontSize: 18,
-                    ),
-                    recognizer: new TapGestureRecognizer()
-                      ..onTap = () {
-                        _launchURL("https://www.red3d.com/cwr/boids/");
-                      },
-                  ),
-                  new TextSpan(
-                    text:
-                        ' Boids. Which is a computer model of coordinated animal motion such as bird flocks and fish schools. Then placing sound nodes on each of the boids.\n\nDesigned to test sound Spatialisation and Flocking Behaviours\n\nFor the best experience use 7.1 surround sound.\n\n2020 Audio Jam Submission.\n',
-                    style: new TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                    ),
-                  ),
-                ]),
-                DownloadButton(
-                    downloadLink: "https://bennyght.itch.io/nyghts-3d-audio"),
-                ImageLibrary(
-                  images: [
-                    "lib/projects/3dAudio/audio1.png",
-                    "lib/projects/3dAudio/audioname.png",
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
+    return ProjectBasePage(
+      pageTitle: '3D Audio',
+      heading: '3D Audio',
+      descriptionSpan: TextSpan(
+        style: bodyStyle,
+        children: <InlineSpan>[
+          const TextSpan(text: 'Basic 3D audio scene using a version of '),
+          TextSpan(
+            text: "Craig Reynolds’s",
+            style: bodyStyle?.copyWith(color: AppColors.link),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                launchUrl('https://www.red3d.com/cwr/boids/');
+              },
+          ),
+          const TextSpan(
+            text:
+                ' Boids, which is a computer model of coordinated animal motion such as bird flocks and fish schools. Sound nodes were then placed on each of the boids.\n\n'
+                'Designed to test sound spatialisation and flocking behaviours.\n\n'
+                'For the best experience use 7.1 surround sound.\n\n'
+                '2020 Audio Jam Submission.',
+          ),
+        ],
       ),
+      actionButtons: const <Widget>[
+        DownloadButton(downloadLink: _downloadLink),
+      ],
+      images: _images,
     );
   }
 }

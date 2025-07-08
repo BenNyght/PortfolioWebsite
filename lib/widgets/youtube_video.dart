@@ -1,5 +1,5 @@
+import 'package:benjamin_portfolio/app_constants.dart';
 import 'package:benjamin_portfolio/widgets/fade_in_two.dart';
-import 'package:benjamin_portfolio/widgets/heading_2.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
@@ -45,10 +45,17 @@ class _YoutubeVideoState extends State<YoutubeVideo> {
         width: _screenWidth <= 800 ? double.maxFinite : 800,
         child: Column(
           children: [
-            HeadingTwo(widget.title),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SelectableText(
+                widget.title,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 18, color: AppColors.bodyText),
+                textAlign: TextAlign.justify,
+              ),
+            ),
             FadeInTwo(
-              0.8,
-              Card(
+              delay: 0.8,
+              child: Card(
                 elevation: 15,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

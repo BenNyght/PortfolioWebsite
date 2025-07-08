@@ -41,14 +41,17 @@ class _ImageLibraryState extends State<ImageLibrary> {
             mainAxisSpacing: 10,
             crossAxisCount: _crossAxisCount),
         itemBuilder: (_, index) => FadeInTwo(
-          0.8,
-          OnHover(builder: (isHovered) {
+          delay: 0.8,
+          child: OnHover(builder: (isHovered) {
             return PhysicalModel(
               color: Colors.transparent,
               elevation: hoverOver ? 16 : 0,
               child: GestureDetector(
                 onPanDown: (_) =>
-                    {ImagePopup().openImage(context, widget.images[index])},
+                  showImagePopup(
+                    context: context,
+                    assetPath: widget.images[index],
+                  ),
                 child: Card(
                   elevation: 8,
                   shape: RoundedRectangleBorder(

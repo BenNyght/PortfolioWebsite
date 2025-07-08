@@ -1,56 +1,69 @@
-import 'package:benjamin_portfolio/widgets/heading_0.dart';
-import 'package:benjamin_portfolio/widgets/heading_1.dart';
-import 'package:benjamin_portfolio/widgets/heading_2.dart';
-import 'package:benjamin_portfolio/widgets/image_library.dart';
-import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
-import 'package:benjamin_portfolio/widgets/project_content.dart';
-import 'package:benjamin_portfolio/widgets/website_button.dart';
 import 'package:flutter/material.dart';
+import 'package:benjamin_portfolio/app_constants.dart';
+import 'package:benjamin_portfolio/widgets/project_base_page.dart';
+import 'package:benjamin_portfolio/widgets/website_button.dart';
 
-class EasyTabletop extends StatefulWidget {
-  @override
-  _EasyTabletopState createState() => _EasyTabletopState();
-}
+class EasyTabletopPage extends StatelessWidget 
+{
+  static const routeName = '/projects/easy-tabletop';
 
-class _EasyTabletopState extends State<EasyTabletop> {
+  static const _url = 'https://easytabletop.web.app/';
+
+  static const _images = <String>[
+    'lib/projects/dndMapViewer/1.jpg',
+    'lib/projects/dndMapViewer/2.jpg',
+    'lib/projects/dndMapViewer/3.jpg',
+    'lib/projects/dndMapViewer/4.jpg',
+    'lib/projects/dndMapViewer/5.jpg',
+    'lib/projects/dndMapViewer/6.jpg',
+    'lib/projects/dndMapViewer/8.jpg',
+    'lib/projects/dndMapViewer/11.jpg',
+    'lib/projects/dndMapViewer/22.jpg',
+    'lib/projects/dndMapViewer/44.jpg',
+  ];
+
+  /// Creates an [EasyTabletopPage].
+  const EasyTabletopPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        bottom: true,
-        top: true,
-        left: true,
-        right: true,
-        child: CustomScrollView(
-          slivers: <Widget>[
-            ProjectAppBar(title: "Easy Tabletop"),
-            ProjectContent(children: [
-              HeadingOne("🐉 Easy Tabletop"),
-              HeadingZero(
-                  "Originally created for the Dungeons and Dragons esports group at USC. This software has evolved over time and is being updated when necessary. While still being actively used in several tabletop groups."),
-              SizedBox(
-                height: 10,
-              ),
-              HeadingTwo("Features"),
-              HeadingZero(
-                  "Mapview:\n- Load images(maps) from the computer.\n- Select menu with image preview.\n- Fog of war.\n- Camera controls. Scroll to zoom, Hold right-click to pan the camera, Q and E to rotate.\n\nTimeline Library: \n- Mapped out timelines for Forgotten Realms, Eberron, Dark Sun, Dragonlance, Greyhawk, Mystara, Planescape, Ravenloft, and Spelljammer.\n"),
-              WebsiteButton(link: "https://easytabletop.web.app/"),
-              ImageLibrary(images: [
-                "lib/projects/dndMapViewer/1.jpg",
-                "lib/projects/dndMapViewer/2.jpg",
-                "lib/projects/dndMapViewer/3.jpg",
-                "lib/projects/dndMapViewer/4.jpg",
-                "lib/projects/dndMapViewer/5.jpg",
-                "lib/projects/dndMapViewer/6.jpg",
-                "lib/projects/dndMapViewer/8.jpg",
-                "lib/projects/dndMapViewer/11.jpg",
-                "lib/projects/dndMapViewer/22.jpg",
-                "lib/projects/dndMapViewer/44.jpg",
-              ]),
-            ]),
-          ],
-        ),
+    final bodyStyle = Theme.of(context)
+        .textTheme
+        .bodyMedium
+        ?.copyWith(color: AppColors.bodyText, fontSize: 18);
+
+    return ProjectBasePage(
+      pageTitle: 'Easy Tabletop',
+      heading: '🐉 Easy Tabletop',
+      descriptionSpan: TextSpan(
+        style: bodyStyle,
+        children: <InlineSpan>[
+          const TextSpan(
+            text:
+                'Originally created for the Dungeons and Dragons esports group at USC. '
+                'This software has evolved over time and is being updated when necessary. '
+                'While still being actively used in several tabletop groups.\n\n',
+          ),
+          TextSpan(
+            text: 'Features:\n',
+            style: bodyStyle?.copyWith(fontWeight: FontWeight.bold),
+          ),
+          const TextSpan(
+            text:
+                '- Load images (maps) from the computer.\n'
+                '- Select menu with image preview.\n'
+                '- Fog of war.\n'
+                '- Camera controls: scroll to zoom, hold right-click to pan, Q/E to rotate.\n\n'
+                'Timeline Library:\n'
+                '- Forgotten Realms, Eberron, Dark Sun, Dragonlance, Greyhawk, '
+                'Mystara, Planescape, Ravenloft, and Spelljammer.\n',
+          ),
+        ],
       ),
+      actionButtons: const <Widget>[
+        WebsiteButton(link: _url),
+      ],
+      images: _images,
     );
   }
 }

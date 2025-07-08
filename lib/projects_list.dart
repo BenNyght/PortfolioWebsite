@@ -45,8 +45,8 @@ class ProjectsList extends StatelessWidget {
             itemCount: sortedProjects.length,
             itemBuilder: (context, index) {
               return FadeInTwo(
-                0.8,
-                sortedProjects[index],
+                delay: 0.8,
+                child: sortedProjects[index],
               );
             },
           );

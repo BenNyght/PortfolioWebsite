@@ -1,6 +1,5 @@
 import 'package:benjamin_portfolio/app_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:benjamin_portfolio/home.dart';
 
 class ProjectsBannerButton extends StatefulWidget {
   final double height;

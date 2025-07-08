@@ -1,36 +1,56 @@
-import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+// lib/widgets/website_button.dart
 
-class WebsiteButton extends StatefulWidget {
+import 'package:flutter/material.dart';
+import 'package:benjamin_portfolio/app_constants.dart';
+import 'package:benjamin_portfolio/utils/url_launcher_util.dart';
+
+/// A button that opens a web [link] when pressed.
+/// 
+/// By default shows an “open in browser” icon and a [label].
+class WebsiteButton extends StatelessWidget 
+{
+  /// The URL to launch.
   final String link;
 
-  WebsiteButton({required this.link});
+  /// The text to display on the button.
+  final String label;
+
+  /// Creates a [WebsiteButton].
+  /// 
+  /// The [label] defaults to “Website” if not provided.
+  const WebsiteButton({
+    Key? key,
+    required this.link,
+    this.label = 'Website',
+  }) : super(key: key);
 
   @override
-  _WebsiteButtonState createState() => _WebsiteButtonState();
-}
-
-class _WebsiteButtonState extends State<WebsiteButton> {
-  void _launchURL(String _url) async => await canLaunchUrlString(_url)
-      ? await launchUrlString(_url)
-      : throw 'Could not launch $_url';
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-      onPressed: () {
-        _launchURL(widget.link);
-      },
-      icon: Icon(Icons.open_in_browser),
-      label: Container(
-        width: 200,
-        height: 50,
+  Widget build(BuildContext context) 
+  {
+    return TextButton.icon(
+      style: TextButton.styleFrom(
+        backgroundColor: AppColors.primary,
+        foregroundColor: Colors.white,
+        padding: const EdgeInsets.symmetric(
+          horizontal: 24,
+          vertical: 16,
+        ),
+        textStyle: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+        ),
+        minimumSize: const Size(56, 56),
         alignment: Alignment.center,
-        child: Text(
-          "Open Easy Tabletop",
-          style: TextStyle(fontSize: 20),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
         ),
       ),
+      icon: const Icon(
+        Icons.open_in_browser,
+        size: 20,
+      ),
+      label: Text(label),
+      onPressed: () => launchUrl(link),
     );
   }
 }

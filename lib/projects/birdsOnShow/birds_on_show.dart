@@ -1,96 +1,70 @@
-import 'package:benjamin_portfolio/widgets/app_store_button.dart';
-import 'package:benjamin_portfolio/widgets/heading_0_rich.dart';
-import 'package:benjamin_portfolio/widgets/heading_1.dart';
-import 'package:benjamin_portfolio/widgets/image_library.dart';
-import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
-import 'package:benjamin_portfolio/widgets/project_content.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:benjamin_portfolio/app_constants.dart';
+import 'package:benjamin_portfolio/utils/url_launcher_util.dart';
+import 'package:benjamin_portfolio/widgets/project_base_page.dart';
+import 'package:benjamin_portfolio/widgets/app_store_button.dart';
 
-class BirdsOnShow extends StatefulWidget {
-  @override
-  _BirdsOnShowState createState() => _BirdsOnShowState();
-}
+class BirdsOnShowPage extends StatelessWidget 
+{
+  static const routeName = '/projects/birds-on-show';
 
-class _BirdsOnShowState extends State<BirdsOnShow> {
-  void _launchURL(String _url) async => await canLaunchUrlString(_url)
-      ? await launchUrlString(_url)
-      : throw 'Could not launch $_url';
+  static const _appStoreLink = 'https://apps.apple.com/au/app/mary-cairncross-birds-on-show/id1477947473';
 
-  bool displayTargets = true;
+  static const _images = <String>[
+    // Main gallery images
+    'lib/projects/birdsOnShow/birds.jpg',
+    'lib/projects/birdsOnShow/bird2.jpg',
+    'lib/projects/birdsOnShow/bird3.jpg',
+    'lib/projects/birdsOnShow/bird4.jpg',
+    'lib/projects/birdsOnShow/marycairnlogo.png',
+    'lib/projects/birdsOnShow/birdsOnShow.jpg',
+    // AR targets
+    'lib/projects/birdsOnShow/target1_scaled.jpg',
+    'lib/projects/birdsOnShow/target2_scaled.jpg',
+    'lib/projects/birdsOnShow/target3_scaled.jpg',
+    'lib/projects/birdsOnShow/target4_scaled.jpg',
+    'lib/projects/birdsOnShow/target5_scaled.jpg',
+  ];
+
+  const BirdsOnShowPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        bottom: true,
-        top: true,
-        left: true,
-        right: true,
-        child: CustomScrollView(
-          slivers: <Widget>[
-            ProjectAppBar(title: "Birds On Show"),
-            ProjectContent(children: [
-              HeadingOne("Birds On Show"),
-              HeadingZeroRich([
-                new TextSpan(
-                  text: 'Developed for ',
-                  style: new TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                  ),
-                ),
-                new TextSpan(
-                  text: "Mary Cairncross Scenic Reserve's",
-                  style: new TextStyle(
-                    color: Colors.blue,
-                    fontSize: 18,
-                  ),
-                  recognizer: new TapGestureRecognizer()
-                    ..onTap = () {
-                      _launchURL(
-                          "https://mary-cairncross.sunshinecoast.qld.gov.au/");
-                    },
-                ),
-                new TextSpan(
-                  text:
-                      ' Rainforest Discovery Centre, as one of their multi-sensory learning experiences.\n\nInside of the Discovery Centre there is a special wall, which comes alive in Virtual Reality. Install this app, and point your phone at the special symbols to bring the wall to life.',
-                  style: new TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                  ),
-                ),
-              ]),
-              AppStoreButton(
-                  link:
-                      "https://apps.apple.com/au/app/mary-cairncross-birds-on-show/id1477947473"),
-              ImageLibrary(images: [
-                "lib/projects/birdsOnShow/birds.jpg",
-                "lib/projects/birdsOnShow/bird2.jpg",
-                "lib/projects/birdsOnShow/bird3.jpg",
-                "lib/projects/birdsOnShow/bird4.jpg",
-                "lib/projects/birdsOnShow/marycairnlogo.png",
-                "lib/projects/birdsOnShow/birdsOnShow.jpg",
-              ]),
-              ExpansionTile(
-                title: Text(
-                  'AR Targets',
-                ),
-                children: <Widget>[
-                  ImageLibrary(images: [
-                    "lib/projects/birdsOnShow/target1_scaled.jpg",
-                    "lib/projects/birdsOnShow/target2_scaled.jpg",
-                    "lib/projects/birdsOnShow/target3_scaled.jpg",
-                    "lib/projects/birdsOnShow/target4_scaled.jpg",
-                    "lib/projects/birdsOnShow/target5_scaled.jpg",
-                  ]),
-                ],
-              ),
-            ]),
-          ],
-        ),
+    final bodyStyle = Theme.of(context)
+        .textTheme
+        .bodyMedium
+        ?.copyWith(color: AppColors.bodyText, fontSize: 18);
+
+    return ProjectBasePage(
+      pageTitle: 'Birds On Show',
+      heading: 'Birds On Show',
+      descriptionSpan: TextSpan(
+        style: bodyStyle,
+        children: <InlineSpan>[
+          const TextSpan(text: 'Developed for '),
+          TextSpan(
+            text: "Mary Cairncross Scenic Reserve’s",
+            style: bodyStyle?.copyWith(color: AppColors.link),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                launchUrl(
+                  'https://mary-cairncross.sunshinecoast.qld.gov.au/',
+                );
+              },
+          ),
+          const TextSpan(
+            text:
+                ' Rainforest Discovery Centre, as one of their multi-sensory learning experiences.\n\n'
+                'Inside the Discovery Centre there is a special wall that comes alive in Virtual Reality. '
+                'Install this app and point your phone at the special symbols to bring the wall to life.',
+          ),
+        ],
       ),
+      actionButtons: const <Widget>[
+        AppStoreButton(link: _appStoreLink),
+      ],
+      images: _images,
     );
   }
 }

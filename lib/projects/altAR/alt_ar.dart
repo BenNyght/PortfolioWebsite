@@ -1,98 +1,71 @@
-import 'package:benjamin_portfolio/widgets/heading_0.dart';
-import 'package:benjamin_portfolio/widgets/heading_0_rich.dart';
-import 'package:benjamin_portfolio/widgets/heading_1.dart';
-import 'package:benjamin_portfolio/widgets/image_library.dart';
-import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
-import 'package:benjamin_portfolio/widgets/project_content.dart';
-import 'package:benjamin_portfolio/widgets/youtube_video.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:benjamin_portfolio/app_constants.dart';
+import 'package:benjamin_portfolio/utils/url_launcher_util.dart';
+import 'package:benjamin_portfolio/widgets/project_base_page.dart';
 
-class AltAR extends StatefulWidget {
-  @override
-  _AltARState createState() => _AltARState();
-}
+class AltARPage extends StatelessWidget 
+{
+  static const routeName = '/projects/alt-ar';
 
-class _AltARState extends State<AltAR> {
-  void _launchURL(String _url) async => await canLaunchUrlString(_url)
-      ? await launchUrlString(_url)
-      : throw 'Could not launch $_url';
+  static const _images = <String>[
+    'lib/projects/altAR/alt1.jpg',
+    'lib/projects/altAR/alt2.jpg',
+    'lib/projects/altAR/alt3.jpg',
+    'lib/projects/altAR/alt4.jpg',
+    'lib/projects/altAR/altAR.jpg',
+  ];
+
+  const AltARPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        bottom: true,
-        top: true,
-        left: true,
-        right: true,
-        child: CustomScrollView(
-          slivers: <Widget>[
-            ProjectAppBar(title: "ALT-AR"),
-            ProjectContent(children: [
-              HeadingOne("ALT-AR"),
-              HeadingZeroRich([
-                new TextSpan(
-                  text:
-                      'Funded by a Queensland Arts Grant, I worked as a Networking & VR Programmer to develop and launch Alt-AR in Unreal Engine for the ',
-                  style: new TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                  ),
-                ),
-                new TextSpan(
-                  text: 'Folly Games',
-                  style: new TextStyle(
-                    color: Colors.blue,
-                    fontSize: 18,
-                  ),
-                  recognizer: new TapGestureRecognizer()
-                    ..onTap = () {
-                      _launchURL("https://follygames.com/");
-                    },
-                ),
-                new TextSpan(
-                  text:
-                      ' company. The game was developed to be an expience that occurs online in Virtual Reality, Mixed Reality, and in Real Life. The game was realised at the ',
-                  style: new TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                  ),
-                ),
-                new TextSpan(
-                  text: 'Anywhere Festival',
-                  style: new TextStyle(
-                    color: Colors.blue,
-                    fontSize: 18,
-                  ),
-                  recognizer: new TapGestureRecognizer()
-                    ..onTap = () {
-                      _launchURL("https://anywhere.is/");
-                    },
-                ),
-                new TextSpan(
-                  text: ' in 2021.',
-                  style: new TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                  ),
-                ),
-              ]),
-              HeadingZero(
-                  "Combining ancient ceremonial knowledge and top secret technology we will summon a being from another world. By entangling our brains with it on a quantum level we will lure it into a virtual environment that acts as an air-lock between our worlds. We would like to reassure you that all safety measures have been put in place and nothing could possibly go wrong. This experience occurs in Virtual Reality, Mixed Reality, and in Real Life."),
-              YoutubeVideo(title: "Trailer", youtubeVideoId: "ORoaMWNqL2E"),
-              ImageLibrary(images: [
-                "lib/projects/altAR/alt1.jpg",
-                "lib/projects/altAR/alt2.jpg",
-                "lib/projects/altAR/alt3.jpg",
-                "lib/projects/altAR/alt4.jpg",
-                "lib/projects/altAR/altAR.jpg",
-              ]),
-            ]),
-          ],
-        ),
+    final bodyStyle = Theme.of(context)
+        .textTheme
+        .bodyMedium
+        ?.copyWith(color: AppColors.bodyText, fontSize: 18);
+
+    return ProjectBasePage(
+      pageTitle: 'ALT-AR',
+      heading: 'ALT-AR',
+      descriptionSpan: TextSpan(
+        style: bodyStyle,
+        children: <InlineSpan>[
+          const TextSpan(
+            text:
+                'Funded by a Queensland Arts Grant, I worked as a Networking & VR Programmer to develop and launch Alt-AR in Unreal Engine for the ',
+          ),
+          TextSpan(
+            text: 'Folly Games',
+            style: bodyStyle?.copyWith(color: AppColors.link),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                launchUrl('https://follygames.com/');
+              },
+          ),
+          const TextSpan(
+            text:
+                ' company. The game was developed to be an experience that occurs online in Virtual Reality, Mixed Reality, and in Real Life. The game was realised at the ',
+          ),
+          TextSpan(
+            text: 'Anywhere Festival',
+            style: bodyStyle?.copyWith(color: AppColors.link),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                launchUrl('https://anywhere.is/');
+              },
+          ),
+          const TextSpan(text: ' in 2021.\n\n'),
+          const TextSpan(
+            text:
+                'Combining ancient ceremonial knowledge and top-secret technology we will summon a being from another world. By entangling our brains with it on a quantum level we will lure it into a virtual environment that acts as an air-lock between our worlds. We would like to reassure you that all safety measures have been put in place and nothing could possibly go wrong. This experience occurs in Virtual Reality, Mixed Reality, and in Real Life.',
+          ),
+        ],
       ),
+      videos: const <YoutubeVideoData>[
+        YoutubeVideoData(title: 'Trailer', id: 'ORoaMWNqL2E'),
+      ],
+      images: _images,
     );
   }
 }

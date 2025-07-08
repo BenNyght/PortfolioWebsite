@@ -1,94 +1,65 @@
-import 'package:benjamin_portfolio/widgets/heading_0_rich.dart';
-import 'package:benjamin_portfolio/widgets/heading_1.dart';
-import 'package:benjamin_portfolio/widgets/image_library.dart';
-import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
-import 'package:benjamin_portfolio/widgets/project_content.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:benjamin_portfolio/app_constants.dart';
+import 'package:benjamin_portfolio/utils/url_launcher_util.dart';
+import 'package:benjamin_portfolio/widgets/project_base_page.dart';
 
-class PaperSimulation extends StatefulWidget {
+class PaperSimulationPage extends StatelessWidget 
+{
+  static const routeName = '/projects/paper-simulation';
+
+  static const _images = <String>[
+    'lib/projects/papersimulation/1.jpg',
+    'lib/projects/papersimulation/2.jpg',
+    'lib/projects/papersimulation/3.jpg',
+    'lib/projects/papersimulation/4.jpg',
+    'lib/projects/papersimulation/EDVR.jpg',
+    'lib/projects/papersimulation/Engage-Research-Logo-Large-Dark.png',
+  ];
+
+  const PaperSimulationPage({Key? key}) : super(key: key);
+
   @override
-  _PaperSimulationState createState() => _PaperSimulationState();
-}
+  Widget build(BuildContext context) 
+  {
+    final bodyStyle = Theme.of(context)
+        .textTheme
+        .bodyMedium
+        ?.copyWith(color: AppColors.bodyText, fontSize: 18);
 
-class _PaperSimulationState extends State<PaperSimulation> {
-  void _launchURL(String _url) async => await canLaunchUrlString(_url)
-      ? await launchUrlString(_url)
-      : throw 'Could not launch $_url';
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        bottom: true,
-        top: true,
-        left: true,
-        right: true,
-        child: CustomScrollView(
-          slivers: <Widget>[
-            ProjectAppBar(title: "Paper Sorting Simulation"),
-            ProjectContent(children: [
-              HeadingOne("VR Paper Sorting Simulation"),
-              HeadingZeroRich([
-                new TextSpan(
-                  text: 'Developed for the ',
-                  style: new TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                  ),
-                ),
-                new TextSpan(
-                  text: "Endeavour Foundation's",
-                  style: new TextStyle(
-                    color: Colors.blue,
-                    fontSize: 18,
-                  ),
-                  recognizer: new TapGestureRecognizer()
-                    ..onTap = () {
-                      _launchURL("https://www.endeavour.com.au/");
-                    },
-                ),
-                new TextSpan(
-                  text:
-                      ' Document Destruction facilities in collaboration with the ',
-                  style: new TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                  ),
-                ),
-                new TextSpan(
-                  text: "Engage Research Lab",
-                  style: new TextStyle(
-                    color: Colors.blue,
-                    fontSize: 18,
-                  ),
-                  recognizer: new TapGestureRecognizer()
-                    ..onTap = () {
-                      _launchURL("https://engageresearch.org/");
-                    },
-                ),
-                new TextSpan(
-                  text:
-                      '. This project had two primary goals—one paper sorting simulation and the second a 360 video training course. The paper sorting simulation is a training tool to teach how and what to sort from the facilities conveyor belt shredder. The 360 video training course is a multiple choice training tool to teach the safety processes of each document destruction facility.',
-                  style: new TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                  ),
-                ),
-              ]),
-              ImageLibrary(images: [
-                "lib/projects/papersimulation/1.jpg",
-                "lib/projects/papersimulation/2.jpg",
-                "lib/projects/papersimulation/3.jpg",
-                "lib/projects/papersimulation/4.jpg",
-                "lib/projects/papersimulation/EDVR.jpg",
-                "lib/projects/papersimulation/Engage-Research-Logo-Large-Dark.png",
-              ]),
-            ]),
-          ],
-        ),
+    return ProjectBasePage(
+      pageTitle: 'Paper Sorting Simulation',
+      heading: 'VR Paper Sorting Simulation',
+      descriptionSpan: TextSpan(
+        style: bodyStyle,
+        children: <InlineSpan>[
+          const TextSpan(text: 'Developed for the '),
+          TextSpan(
+            text: "Endeavour Foundation’s",
+            style: bodyStyle?.copyWith(color: AppColors.link),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                launchUrl('https://www.endeavour.com.au/');
+              },
+          ),
+          const TextSpan(text: ' Document Destruction facilities in collaboration with the '),
+          TextSpan(
+            text: 'Engage Research Lab',
+            style: bodyStyle?.copyWith(color: AppColors.link),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                launchUrl('https://engageresearch.org/');
+              },
+          ),
+          const TextSpan(
+            text:
+                '. This project had two primary goals—one paper sorting simulation and the second a 360° video training course. '
+                'The paper sorting simulation is a training tool to teach how and what to sort from the facilities’ conveyor belt shredder. '
+                'The 360° video training course is a multiple-choice training tool to teach the safety processes of each document destruction facility.',
+          ),
+        ],
       ),
+      images: _images,
     );
   }
 }

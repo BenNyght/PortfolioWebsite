@@ -1,64 +1,36 @@
-import 'package:benjamin_portfolio/widgets/fade_in_two.dart';
-import 'package:benjamin_portfolio/widgets/download_button.dart';
-import 'package:benjamin_portfolio/widgets/heading_0.dart';
-import 'package:benjamin_portfolio/widgets/image_library.dart';
-import 'package:benjamin_portfolio/widgets/project_app_bar.dart';
-import 'package:benjamin_portfolio/widgets/project_content.dart';
 import 'package:flutter/material.dart';
+import 'package:benjamin_portfolio/widgets/project_base_page.dart';
+import 'package:benjamin_portfolio/widgets/download_button.dart';
 
-class Archegnomeies extends StatefulWidget {
-  @override
-  _ArchegnomeiesState createState() => _ArchegnomeiesState();
-}
+class ArchegnomeiesPage extends StatelessWidget 
+{
+  static const routeName = '/projects/archegnomeies';
 
-class _ArchegnomeiesState extends State<Archegnomeies> {
+  static const _downloadLink = 'https://bennyght.itch.io/arch-e-gnome-ies';
+
+  static const _images = <String>[
+    'lib/projects/archegnomeies/archegnomeies.png',
+    'lib/projects/archegnomeies/arch1.jpg',
+    'lib/projects/archegnomeies/arch2.jpg',
+    'lib/projects/archegnomeies/arch3.jpg',
+    'lib/projects/archegnomeies/arch4.jpg',
+    'lib/projects/archegnomeies/arch5.jpg',
+  ];
+
+  const ArchegnomeiesPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: SafeArea(
-        bottom: true,
-        top: true,
-        left: true,
-        right: true,
-        child: CustomScrollView(
-          slivers: <Widget>[
-            ProjectAppBar(title: "Archegnomeies"),
-            ProjectContent(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: FadeInTwo(
-                    0.8,
-                    Container(
-                      width: _screenWidth <= 800 ? double.maxFinite : 800,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Image.asset(
-                          "lib/projects/archegnomeies/archegnomeies.png",
-                          fit: BoxFit.contain,
-                          alignment: Alignment.center,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                HeadingZero(
-                    "Designed as a prototype to give young kids an introduction to the concepts of trigonometry. While playing an angry birds style game."),
-                DownloadButton(
-                    downloadLink: "https://bennyght.itch.io/arch-e-gnome-ies"),
-                ImageLibrary(images: [
-                  "lib/projects/archegnomeies/arch1.jpg",
-                  "lib/projects/archegnomeies/arch2.jpg",
-                  "lib/projects/archegnomeies/arch3.jpg",
-                  "lib/projects/archegnomeies/arch4.jpg",
-                  "lib/projects/archegnomeies/arch5.jpg",
-                ]),
-              ],
-            ),
-          ],
-        ),
-      ),
+    return ProjectBasePage(
+      pageTitle: 'Archegnomeies',
+      heading: 'Arch-e-Gnome-ies',
+      description: 
+        'Designed as a prototype to give young kids an introduction to the concepts '
+        'of trigonometry while playing an Angry Birds–style game.',
+      actionButtons: const <Widget>[
+        DownloadButton(downloadLink: _downloadLink),
+      ],
+      images: _images,
     );
   }
 }
