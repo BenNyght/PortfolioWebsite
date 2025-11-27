@@ -1,5 +1,5 @@
 ## This repo is outdated and no longer maintained. Portfolio code is now a NextJS project in a different (currently private) repo.
-The new portfolio has replaced address. Which you can find here: https://benjaminfinlay.com/
+The new portfolio has replaced this address. Meaning you can still find the up to date portfolio here: https://benjaminfinlay.com/
 
 
 # Benjamin Finlay - Portfolio
